@@ -3,6 +3,7 @@ import "./styles/App.scss";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Cases from "./components/Cases";
+import IntroOverlay from "./components/IntroOverlay";
 
 function App() {
   useEffect(() => {
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      <IntroOverlay />
       <Header />
       <Banner />
       <Cases />
