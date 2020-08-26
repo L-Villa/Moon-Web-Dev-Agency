@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import gsap from "gsap";
 import "./styles/App.scss";
+
 import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -39,11 +41,28 @@ const routes = [
 ];
 
 function App() {
+  gsap.to("body", 0, { css: { visibility: "visible" } });
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-    gsap.to("body", 0, { css: { visibility: "visible" } });
+    const handleResize = () => {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      })
+    }
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+
   });
 
   return (
@@ -56,6 +75,7 @@ function App() {
           </Route>
         ))}
       </div>
+      <Navigation />
     </>
   );
 }
