@@ -8,6 +8,10 @@ export default function Header() {
           <div className="logo">
             <a href="/">AGENCY.</a>
           </div>
+          <div className="nav">
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </div>
