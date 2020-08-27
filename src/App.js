@@ -9,7 +9,6 @@ import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Approach from "./pages/Approach";
-import CaseStudies from "./pages/CaseStudies";
 import Services from "./pages/Services";
 
 const routes = [
@@ -27,11 +26,6 @@ const routes = [
     path: "/approach",
     name: "Approach",
     Component: Approach,
-  },
-  {
-    path: "/case-studies",
-    name: "Case Studies",
-    Component: CaseStudies,
   },
   {
     path: "/services",

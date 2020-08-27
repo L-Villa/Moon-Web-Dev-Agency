@@ -10,6 +10,11 @@ export default function Navigation() {
             <div className="nav-label">Menu</div>
             <ul className="nav-links">
               <li>
+                <NavLink to="/" exact>
+                  Case Studies
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to="/about" exact>
                   About
                 </NavLink>
@@ -17,11 +22,6 @@ export default function Navigation() {
               <li>
                 <NavLink to="/approach" exact>
                   Approach
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/case-studies" exact>
-                  Case Studies
                 </NavLink>
               </li>
               <li>
