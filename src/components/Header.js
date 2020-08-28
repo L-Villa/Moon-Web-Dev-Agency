@@ -34,7 +34,7 @@ function Header({ history, dimensions }) {
           delay: -0.6,
           css: {
             strokeDashoffset: 10,
-            strokeDashoffset: 5,
+            strokeDasharray: 5,
           },
         })
         .to("#Path_2", {
