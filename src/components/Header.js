@@ -123,7 +123,7 @@ function Header({ history, dimensions }) {
           },
         });
     }
-  }, [menuState.menuOpened]);
+  }, [menuState.menuOpened, dimensions, history]);
 
   return (
     <div className="header">
