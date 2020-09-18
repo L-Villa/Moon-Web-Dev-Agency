@@ -1,6 +1,9 @@
 .cases {
   height: 50vh;
   height: calc(var(--vh, 1vh) * 50);
+  @include media(">=tablet") {
+    overflow: hidden;
+  }
   .cases-navigation {
     position: absolute;
     bottom: 0px;
@@ -36,6 +39,7 @@
     @include media("<=tablet") {
       flex-direction: column;
     }
+
     .case {
       position: relative;
       background: $black;
@@ -54,7 +58,7 @@
         justify-content: center;
         padding: 32px;
         box-sizing: border-box;
-        z-index: 1;
+        z-index: 3;
         position: relative;
         @include media("<=tablet") {
           width: 100vw;
@@ -102,6 +106,8 @@
         position: absolute;
         opacity: 0.65;
         transition: 0.4s cubic-bezier(0.6, -0.05, 0.1, 0.99);
+        z-index: 2;
+        // opacity: 0;
         img {
           height: 100%;
           width: 100%;
@@ -110,4 +116,224 @@
       }
     }
   }
+  .square {
+    background: blue;
+    width: 853.3px;
+    height: 669px;
+    position: absolute;
+    top: 669px;
+    left: 853.3px;
+    z-index: 99;
+  }
+
+.bruh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  .case-image-zoom {
+    position: absolute;
+    top: 50%;
+    width: 33.333vw;
+    height: 50%;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 99;
+    &:nth-of-type(5) {
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      visibility: visible;
+    }
+    &.active {
+      visibility: visible;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }
+  // .page-container {
+  //   visibility: hidden;
+  //   width: 100vw;
+  //   height: 100vh;
+  //   .page {
+  //     cursor: pointer;
+  //     position: absolute;
+  //     height: 100vh;
+  //     width: 100vw;
+  //     top: 0;
+  //     left: 0;
+  //     position: fixed;
+  //     z-index: 10;
+  //     .case-image-fill {
+  //       position: absolute;
+  //       top: 0;
+  //       left: 0;
+  //       width: 100%;
+  //       height: 100%;
+  //       overflow: hidden;
+  //       transition: 0.4s cubic-bezier(0.6, -0.05, 0.1, 0.99);
+  //       img {
+  //         height: 100%;
+  //         width: 100%;
+  //         object-fit: cover;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+//! main code of effect
+// main {
+//   height: 100%;
+// }
+
+// .green-box {
+//   height: 350px;
+//   background: #70c26f;
+// }
+
+// .tile-container {
+//   // position: absolute;
+//   // top: 275px;
+//   // right: 0;
+//   // left: 0;
+//   user-select: none;
+// }
+
+// .tile {
+//   display: inline-block;
+// }
+
+// .page-container {
+//   visibility: hidden;
+// }
+
+// .page {
+//   cursor: pointer;
+//   position: absolute;
+//   height: 100vh;
+//   width: 100vw;
+//   top: 0;
+//   left: 0;
+//   position: fixed;
+// }
+
+// .hero-1 {
+//   background: #F4DB33;
+// }
+
+// .hero-2 {
+//   background: #972FF8;
+// }
+
+// .hero-3 {
+//   background: #7DD6FE;
+// }
+
+// .hero-4 {
+//   background: #DC3C84;
+// }
+
+
+
+
+
+
+
+//? full screen hidden image
+
+// .bruh {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 99.5vh;
+//   display: flex;
+//   // overflow: hidden;
+//   .case-image-zoom {
+//     position: absolute;
+//     top: 50%;
+//     width: 33.333vw;
+//     height: 50%;
+//     visibility: hidden;
+//     width: 100%;
+//     height: 100%;
+//     top: 0;
+//     transition: all 1s;
+//     z-index: 99;
+//     &:nth-of-type(5) {
+//       width: 100vw;
+//       height: 100vh;
+//       top: 0;
+//       left: 0;
+//       visibility: visible;
+//     }
+//     &.active {
+//       visibility: visible;
+//       top: 0;
+//       width: 100vw;
+//       height: 100vh;
+//     }
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//     }
+//   }
+// }
+
+//? positioned in normal spots
+
+// .bruh {
+//   position: absolute;
+//   top: 49.5%;
+//   left: 0;
+//   width: 100vw;
+//   height: 0vh;
+//   display: flex;
+//   // overflow: hidden;
+//   .case-image-zoom {
+//     // position: absolute;
+//     top: 50%;
+//     width: 33.333vw;
+//     height: 50vh;
+//     visibility: hidden;
+//     // visibility: visible;
+//     // width: 100%;
+//     // height: 100%;
+//     top: 0;
+//     transition: all 1s;
+//     z-index: 99;
+//     &:nth-of-type(5) {
+//       width: 100vw;
+//       height: 100vh;
+//       top: 0;
+//       left: 0;
+//       visibility: visible;
+//     }
+//     &.active {
+//       visibility: visible;
+//       top: 0;
+//       width: 100vw;
+//       height: 100vh;
+//     }
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//     }
+//   }
+// }
