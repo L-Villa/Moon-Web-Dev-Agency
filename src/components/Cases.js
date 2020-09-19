@@ -32,6 +32,20 @@ const caseStudies = [
     img: "lumin-min",
     active: false,
   },
+  {
+    id: 5,
+    subtitle: "Yourspace",
+    title: "Open space floor plans for your next venture",
+    img: "yourspace-min",
+    active: false,
+  },
+  {
+    id: 6,
+    subtitle: "Curology",
+    title: "A custom formula for your skin's unique needs",
+    img: "curology-min",
+    active: false,
+  },
 ];
 
 const tl = gsap.timeline();
@@ -45,29 +59,12 @@ export default function Cases() {
   //   { active: false },
   //   { active: false },
   // ]);
+  const [width, setWidth] = useState(853.3);
+  const [counter, setCounter] = useState(0);
 
   const productAnimation = (e, index) => {
     console.log("hello");
-    // for (let i = 0; i < active.length; i++) {
-    //   if (index === i) {
-    //     const tempActive = !active.active;
-    //     console.log(tempActive);
-    //   } else {
-    //     setActive([{ active: false }, { active: false }, { active: false }]);
-    //   }
-    // }
 
-    // let dts = active.map((dot, ii) => {
-    //   if (index === ii) {
-    //     dot.active = !dot.active;
-    //     console.log("true");
-    //   } else {
-    //     dot.active = false;
-    //   }
-    //   return dot;
-    // });
-    // setActive(dts);
-    // console.log(dts);
     const toolbar = window.outerHeight - window.innerHeight;
     const scrollbar = window.outerWidth - window.innerWidth;
     var scrollTop = window.pageYOffset;
@@ -78,14 +75,6 @@ export default function Cases() {
     var clientTop = document.body.clientTop || 0;
 
     console.log(clientTop);
-    //     var clientLeft = root.clientLeft || body.clientLeft || 0;
-
-    //     return {
-    //       top: Math.round(rect.top + scrollTop - clientTop),
-    //       left: Math.round(rect.left + scrollLeft - clientLeft),
-    //       height: rect.height,
-    //       width: rect.width,
-    //     };
 
     const windowOffsets = window.screen;
     const windowTop = windowOffsets.top;
@@ -101,7 +90,6 @@ export default function Cases() {
     const height = offsets.height;
     const width = offsets.width;
     console.log("target: ", offsets);
-
 
     //! remove scrolling until affect is done?
     for (let i = 0; i < caseStudies.length; i++) {
@@ -139,6 +127,14 @@ export default function Cases() {
     }
   };
 
+  const handleNext = (e) => {
+    e.stopPropagation();
+
+    if (counter < caseStudies.length) {
+      setCounter(counter + 3)
+    }
+  };
+
   useEffect(() => {});
 
   return (
@@ -149,7 +145,7 @@ export default function Cases() {
           <div className="cases-arrow prev disabled">
             <CasesPrev />
           </div>
-          <div className="cases-arrow next">
+          <div className="cases-arrow next" onClick={handleNext}>
             <CasesNext />
           </div>
         </div>
@@ -159,6 +155,7 @@ export default function Cases() {
               className="case"
               key={caseItem.id}
               onClick={(e) => productAnimation(e, index)}
+              style={{ transform: `translateX(${-width * counter}px)` }}
             >
               <div className={`case-details case-details-${index + 1}`}>
                 <span>{caseItem.subtitle}</span>
@@ -166,7 +163,6 @@ export default function Cases() {
               </div>
               <div className="case-image">
                 <img
-                  // onClick={productAnimation}
                   src={require(`../assets/${caseItem.img}.png`)}
                   alt={caseItem.title}
                 />
