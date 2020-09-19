@@ -127,11 +127,17 @@ export default function Cases() {
     }
   };
 
+  //? change width so that it's not static
   const handleNext = (e) => {
     e.stopPropagation();
-
     if (counter < caseStudies.length - 3) {
       setCounter(counter + 3);
+    }
+  };
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    if (counter > 2) {
+      setCounter(counter - 3);
     }
   };
 
@@ -142,7 +148,10 @@ export default function Cases() {
       {/* <div className="square"></div> */}
       <div className="container-fluid">
         <div className="cases-navigation">
-          <div className="cases-arrow prev disabled">
+          <div
+            className={"cases-arrow prev" + (counter < 2 ? " disabled" : "")}
+            onClick={handlePrev}
+          >
             <CasesPrev />
           </div>
           <div

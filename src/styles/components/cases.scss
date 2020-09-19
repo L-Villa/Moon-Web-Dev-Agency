@@ -38,8 +38,6 @@
     }
   }
   .row {
-    // transform: translateX(-853.3px);
-    // transform: translateX(0px);
     @include media("<=tablet") {
       flex-direction: column;
     }
@@ -47,11 +45,10 @@
     .case {
       position: relative;
       background: $black;
-      cursor: pointer;
       z-index: 1;
       transform: translateX(-853.3px);
-      transition: transform 1s ease-in-out;
-      // transform: translateX(-2559.9px);
+      transition: transform 0.5s ease-in-out;
+      cursor: pointer;
       &:hover {
         .case-image {
           opacity: 0.4;
