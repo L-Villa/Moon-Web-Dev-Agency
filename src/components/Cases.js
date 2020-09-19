@@ -130,8 +130,8 @@ export default function Cases() {
   const handleNext = (e) => {
     e.stopPropagation();
 
-    if (counter < caseStudies.length) {
-      setCounter(counter + 3)
+    if (counter < caseStudies.length - 3) {
+      setCounter(counter + 3);
     }
   };
 
@@ -145,7 +145,13 @@ export default function Cases() {
           <div className="cases-arrow prev disabled">
             <CasesPrev />
           </div>
-          <div className="cases-arrow next" onClick={handleNext}>
+          <div
+            className={
+              "cases-arrow next" +
+              (counter >= caseStudies.length - 3 ? " disabled" : "")
+            }
+            onClick={handleNext}
+          >
             <CasesNext />
           </div>
         </div>
