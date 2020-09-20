@@ -48,8 +48,8 @@ function debounce(fn, ms) {
 function App() {
   gsap.to("body", 0, { css: { visibility: "visible" } });
   const [dimensions, setDimensions] = useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
+    height: document.documentElement.clientHeight,
+    width: document.documentElement.clientWidth,
   });
 
   useEffect(() => {
@@ -58,8 +58,8 @@ function App() {
 
     const debouncedHandleResize = debounce(function handleResize() {
       setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
+        height: document.documentElement.clientHeight,
+        width: document.documentElement.clientWidth,
       });
     }, 1000);
 
