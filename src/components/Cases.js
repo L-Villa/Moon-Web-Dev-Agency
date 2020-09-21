@@ -74,7 +74,7 @@ const tl = gsap.timeline();
 //? use useEffect to monitor the case active? If active === true then run gsap
 
 export default function Cases() {
-  const [width, setWidth] = useState(853.3);
+  const [width, setWidth] = useState(853);
   const [counter, setCounter] = useState(0);
   const [scroll, setScroll] = useState(0);
 
@@ -152,70 +152,28 @@ export default function Cases() {
   };
   const handlePrev = (e) => {
     e.stopPropagation();
-    if (counter > 2) {
+    if (counter > 2 || scroll > width * 3) {
       setCounter(counter - 3);
     }
   };
 
-  // var syntheticEvent = new WheelEvent("syntheticWheel", {
-  //   deltaY: 4,
-  //   deltaMode: 0,
-  // });
-
-  // console.log(syntheticEvent.deltaY);
-
-  // useEffect(() => {
-  //   document.body.addEventListener(
-  //     "wheel",
-  //     (e) => {
-  //       const dY = e.deltaY * 20;
-  //       if (scroll < 0 && scroll > (caseStudies.length - 3) * -width + dY) {
-  //         setScroll(scroll - dY);
-  //       } else if (scroll === 0 && dY > 0) {
-  //         setScroll(-dY);
-  //       }
-  //       // if (dY < 0) {
-  //       //   setScroll(scroll + dY * 10);
-  //       //   console.log(scroll + dY * 10);
-  //       // } else if (dY > 0) {
-  //       //   setScroll(scroll - dY * 10);
-  //       //   console.log(scroll - dY * 10);
-  //       // }
-  //       // const oldVal = document
-  //       //   .querySelector("body")
-  //       //   .style.transform.replace("translateY(", "")
-  //       //   .replace("px)", "");
-  //       // const dY = e.deltaY;
-  //       // document.querySelector("body").style.transform =
-  //       //   "translateY(" + (oldVal - dY) + "px)";
-
-  //       // console.log("w: ", window.scrollY);
-  //       // console.log(oldVal - dY);
-  //       // console.log(oldVal);
-  //       // console.log(dY);
-
-  //       // const parseO = parseInt(oldVal);
-  //       // update the body translation to simulate a scroll
-  //       // setScroll(oldVal - dY);
-  //     }
-  //     // true
-  //   );
-  //   console.log(scroll);
-  // }, [scroll]);
-
-  // scroll < (caseStudies.length - 1) * width ||
-
   const newHandleScroll = (e) => {
     const dY = e.deltaY * 20;
-    if (scroll < 0 && scroll > (caseStudies.length - 3) * -width + dY) {
+    if (scroll >= (caseStudies.length - 3) * -width + dY && scroll <= 0 + dY) {
       setScroll(scroll - dY);
-    } else if (scroll === 0 && dY > 0) {
-      setScroll(-dY);
     }
   };
 
+  useEffect(() => {
+    document.body.addEventListener("wheel", newHandleScroll);
+
+    return () => {
+      document.body.removeEventListener("wheel", newHandleScroll);
+    };
+  });
+
   return (
-    <section className="cases" onWheel={newHandleScroll}>
+    <section className="cases">
       <div className="cases-wrapper">
         <div className="container-fluid">
           <div className="cases-navigation">
