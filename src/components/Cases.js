@@ -46,6 +46,27 @@ const caseStudies = [
     img: "curology-min",
     active: false,
   },
+  {
+    id: 7,
+    subtitle: "Curology",
+    title: "A custom formula for your skin's unique needs",
+    img: "curology-min",
+    active: false,
+  },
+  {
+    id: 8,
+    subtitle: "Yourspace",
+    title: "Open space floor plans for your next venture",
+    img: "yourspace-min",
+    active: false,
+  },
+  {
+    id: 9,
+    subtitle: "Lumin",
+    title: "For your best look ever",
+    img: "lumin-min",
+    active: false,
+  },
 ];
 
 const tl = gsap.timeline();
@@ -53,34 +74,29 @@ const tl = gsap.timeline();
 //? use useEffect to monitor the case active? If active === true then run gsap
 
 export default function Cases() {
-  // const [active, setActive] = useState([
-  //   { active: false },
-  //   { active: false },
-  //   { active: false },
-  //   { active: false },
-  // ]);
   const [width, setWidth] = useState(853.3);
   const [counter, setCounter] = useState(0);
+  const [scroll, setScroll] = useState(0);
 
   const productAnimation = (e, index) => {
     console.log("hello");
 
-    const toolbar = window.outerHeight - window.innerHeight;
-    const scrollbar = window.outerWidth - window.innerWidth;
-    var scrollTop = window.pageYOffset;
-    var scrollLeft = window.pageXOffset;
+    // const toolbar = window.outerHeight - window.innerHeight;
+    // const scrollbar = window.outerWidth - window.innerWidth;
+    const scrollTop = window.pageYOffset;
+    const scrollLeft = window.pageXOffset;
 
-    console.log(scrollTop, scrollLeft);
+    // console.log(scrollTop, scrollLeft);
 
-    var clientTop = document.body.clientTop || 0;
+    // const clientTop = document.body.clientTop || 0;
 
-    console.log(clientTop);
+    // console.log(clientTop);
 
     const windowOffsets = window.screen;
     const windowTop = windowOffsets.top;
-    const windowLeft = windowOffsets.left;
-    const windowHeight = windowOffsets.height;
-    const windowWidth = windowOffsets.width;
+    // const windowLeft = windowOffsets.left;
+    // const windowHeight = windowOffsets.height;
+    // const windowWidth = windowOffsets.width;
     console.log("window: ", windowOffsets);
 
     const offsets = e.target.getBoundingClientRect();
@@ -118,8 +134,8 @@ export default function Cases() {
               visibility: "visible",
               y: windowTop,
               x: scrollLeft,
-              width: window.innerWidth,
-              height: window.innerHeight,
+              width: document.documentElement.clientWidth,
+              height: document.documentElement.clientHeight,
               ease: "expo.inOut",
             }
           );
@@ -141,66 +157,125 @@ export default function Cases() {
     }
   };
 
-  useEffect(() => {});
+  // var syntheticEvent = new WheelEvent("syntheticWheel", {
+  //   deltaY: 4,
+  //   deltaMode: 0,
+  // });
+
+  // console.log(syntheticEvent.deltaY);
+
+  // useEffect(() => {
+  //   document.body.addEventListener(
+  //     "wheel",
+  //     (e) => {
+  //       const dY = e.deltaY * 20;
+  //       if (scroll < 0 && scroll > (caseStudies.length - 3) * -width + dY) {
+  //         setScroll(scroll - dY);
+  //       } else if (scroll === 0 && dY > 0) {
+  //         setScroll(-dY);
+  //       }
+  //       // if (dY < 0) {
+  //       //   setScroll(scroll + dY * 10);
+  //       //   console.log(scroll + dY * 10);
+  //       // } else if (dY > 0) {
+  //       //   setScroll(scroll - dY * 10);
+  //       //   console.log(scroll - dY * 10);
+  //       // }
+  //       // const oldVal = document
+  //       //   .querySelector("body")
+  //       //   .style.transform.replace("translateY(", "")
+  //       //   .replace("px)", "");
+  //       // const dY = e.deltaY;
+  //       // document.querySelector("body").style.transform =
+  //       //   "translateY(" + (oldVal - dY) + "px)";
+
+  //       // console.log("w: ", window.scrollY);
+  //       // console.log(oldVal - dY);
+  //       // console.log(oldVal);
+  //       // console.log(dY);
+
+  //       // const parseO = parseInt(oldVal);
+  //       // update the body translation to simulate a scroll
+  //       // setScroll(oldVal - dY);
+  //     }
+  //     // true
+  //   );
+  //   console.log(scroll);
+  // }, [scroll]);
+
+  // scroll < (caseStudies.length - 1) * width ||
+
+  const newHandleScroll = (e) => {
+    const dY = e.deltaY * 20;
+    if (scroll < 0 && scroll > (caseStudies.length - 3) * -width + dY) {
+      setScroll(scroll - dY);
+    } else if (scroll === 0 && dY > 0) {
+      setScroll(-dY);
+    }
+  };
 
   return (
-    <section className="cases">
-      {/* <div className="square"></div> */}
-      <div className="container-fluid">
-        <div className="cases-navigation">
-          <div
-            className={"cases-arrow prev" + (counter < 2 ? " disabled" : "")}
-            onClick={handlePrev}
-          >
-            <CasesPrev />
+    <section className="cases" onWheel={newHandleScroll}>
+      <div className="cases-wrapper">
+        <div className="container-fluid">
+          <div className="cases-navigation">
+            <div
+              className={"cases-arrow prev" + (counter < 2 ? " disabled" : "")}
+              onClick={handlePrev}
+            >
+              <CasesPrev />
+            </div>
+            <div
+              className={
+                "cases-arrow next" +
+                (counter >= caseStudies.length - 3 ? " disabled" : "")
+              }
+              onClick={handleNext}
+            >
+              <CasesNext />
+            </div>
           </div>
-          <div
-            className={
-              "cases-arrow next" +
-              (counter >= caseStudies.length - 3 ? " disabled" : "")
-            }
-            onClick={handleNext}
-          >
-            <CasesNext />
+          <div className="row">
+            {caseStudies.map((caseItem, index) => (
+              <div
+                className="case"
+                key={caseItem.id}
+                onClick={(e) => productAnimation(e, index)}
+                style={{
+                  transform: `translateX(${scroll - width * counter}px)`,
+                }}
+              >
+                <div className={`case-details case-details-${index + 1}`}>
+                  <span>{caseItem.subtitle}</span>
+                  <h2> {caseItem.title} </h2>
+                </div>
+                <div className="case-image">
+                  <img
+                    src={require(`../assets/${caseItem.img}.png`)}
+                    alt={caseItem.title}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="row">
+        <div className="bruh">
           {caseStudies.map((caseItem, index) => (
             <div
-              className="case"
+              className={
+                // "case-image-zoom" + (active[index].active ? "active" : "")
+                "case-image-zoom"
+              }
               key={caseItem.id}
-              onClick={(e) => productAnimation(e, index)}
-              style={{ transform: `translateX(${-width * counter}px)` }}
             >
-              <div className={`case-details case-details-${index + 1}`}>
-                <span>{caseItem.subtitle}</span>
-                <h2> {caseItem.title} </h2>
-              </div>
-              <div className="case-image">
-                <img
-                  src={require(`../assets/${caseItem.img}.png`)}
-                  alt={caseItem.title}
-                />
-              </div>
+              <img
+                src={require(`../assets/${caseItem.img}.png`)}
+                alt={caseItem.title}
+              />
             </div>
           ))}
         </div>
-      </div>
-      <div className="bruh">
-        {caseStudies.map((caseItem, index) => (
-          <div
-            className={
-              // "case-image-zoom" + (active[index].active ? "active" : "")
-              "case-image-zoom"
-            }
-            key={caseItem.id}
-          >
-            <img
-              src={require(`../assets/${caseItem.img}.png`)}
-              alt={caseItem.title}
-            />
-          </div>
-        ))}
+        <div className="fullscreen"></div>
       </div>
     </section>
   );
