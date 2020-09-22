@@ -227,7 +227,6 @@ export default function Cases() {
             </div>
           ))}
         </div>
-        <div className="fullscreen"></div>
       </div>
     </section>
   );
