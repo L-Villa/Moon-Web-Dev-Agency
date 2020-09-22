@@ -146,11 +146,10 @@ export default function Cases() {
   //? change width so that it's not static
   const handleNext = (e) => {
     e.stopPropagation();
-    if (
-      counter < caseStudies.length - 3 &&
-      scroll >= (caseStudies.length - 3) * -width
-    ) {
-      setCounter(counter + 3);
+    if (scroll > (caseStudies.length - 6) * -width) {
+      setScroll(scroll - width * 3);
+    } else {
+      setScroll((caseStudies.length - 3) * -width);
     }
   };
   const handlePrev = (e) => {
@@ -168,7 +167,7 @@ export default function Cases() {
     if (scroll >= (caseStudies.length - 3) * -width + dY && scroll <= 0 + dY) {
       setScroll(scroll - dY);
     }
-    console.log('scroll: ', scroll, 'ratio: ', scroll / width);
+    console.log("scroll: ", scroll, "ratio: ", scroll / width);
   };
 
   useEffect(() => {
@@ -185,9 +184,7 @@ export default function Cases() {
         <div className="container-fluid">
           <div className="cases-navigation">
             <div
-              className={
-                "cases-arrow prev" + (scroll === 0 ? " disabled" : "")
-              }
+              className={"cases-arrow prev" + (scroll === 0 ? " disabled" : "")}
               onClick={handlePrev}
             >
               <CasesPrev />
@@ -195,7 +192,7 @@ export default function Cases() {
             <div
               className={
                 "cases-arrow next" +
-                (counter >= caseStudies.length - 3 ? " disabled" : "")
+                (scroll <= (caseStudies.length - 3) * -width ? " disabled" : "")
               }
               onClick={handleNext}
             >
