@@ -75,37 +75,23 @@ const tl = gsap.timeline();
 
 export default function Cases() {
   const [width, setWidth] = useState(853);
-  const [counter, setCounter] = useState(0);
   const [scroll, setScroll] = useState(0);
 
   const productAnimation = (e, index) => {
-    console.log("hello");
-
-    // const toolbar = window.outerHeight - window.innerHeight;
-    // const scrollbar = window.outerWidth - window.innerWidth;
     const scrollTop = window.pageYOffset;
     const scrollLeft = window.pageXOffset;
-
-    // console.log(scrollTop, scrollLeft);
-
-    // const clientTop = document.body.clientTop || 0;
-
-    // console.log(clientTop);
-
     const windowOffsets = window.screen;
     const windowTop = windowOffsets.top;
-    // const windowLeft = windowOffsets.left;
-    // const windowHeight = windowOffsets.height;
-    // const windowWidth = windowOffsets.width;
-    console.log("window: ", windowOffsets);
 
-    const offsets = e.target.getBoundingClientRect();
-    const top = offsets.y;
-    const left = offsets.x;
-    // const bottom = offsets.bottom;
-    const height = offsets.height;
-    const width = offsets.width;
-    console.log("target: ", offsets);
+    const initialCase = e.target.getBoundingClientRect();
+    const initialY = initialCase.y;
+    const initialX = initialCase.x;
+    const initialHeight = initialCase.height;
+    const initialWidth = initialCase.width;
+
+    const finalCase = document.documentElement;
+    const finalWidth = finalCase.clientWidth;
+    const finalHeight = finalCase.clientHeight;
 
     //! remove scrolling until affect is done?
     for (let i = 0; i < caseStudies.length; i++) {
@@ -123,10 +109,10 @@ export default function Cases() {
             `.case-image-zoom:nth-of-type(${i + 1})`,
             {
               visibility: "hidden",
-              y: top,
-              x: left,
-              width: width,
-              height: height,
+              y: initialY,
+              x: initialX,
+              width: initialWidth,
+              height: initialHeight,
             },
             {
               duration: 2,
@@ -134,8 +120,8 @@ export default function Cases() {
               visibility: "visible",
               y: windowTop,
               x: scrollLeft,
-              width: document.documentElement.clientWidth,
-              height: document.documentElement.clientHeight,
+              width: finalWidth,
+              height: finalHeight,
               ease: "expo.inOut",
             }
           );
@@ -144,6 +130,7 @@ export default function Cases() {
   };
 
   //! change width so that it's not static
+  //! only run these functions if page size is large enough
   const handleNext = (e) => {
     e.stopPropagation();
     if (scroll > (caseStudies.length - 6) * -width) {
