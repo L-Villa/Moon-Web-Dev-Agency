@@ -143,7 +143,7 @@ export default function Cases() {
     }
   };
 
-  //? change width so that it's not static
+  //! change width so that it's not static
   const handleNext = (e) => {
     e.stopPropagation();
     if (scroll > (caseStudies.length - 6) * -width) {
@@ -156,7 +156,6 @@ export default function Cases() {
     e.stopPropagation();
     if (scroll < -width * 3) {
       setScroll(scroll + width * 3);
-      console.log("clicked: ", scroll);
     } else {
       setScroll(0);
     }
@@ -164,10 +163,13 @@ export default function Cases() {
 
   const newHandleScroll = (e) => {
     const dY = e.deltaY * 20;
-    if (scroll >= (caseStudies.length - 3) * -width + dY && scroll <= 0 + dY) {
+    if (scroll >= (caseStudies.length - 3) * -width + dY && scroll <= dY) {
       setScroll(scroll - dY);
+    } else if (scroll < (caseStudies.length - 3) * -width + dY && dY > 0) {
+      setScroll((caseStudies.length - 3) * -width);
+    } else if (scroll > dY && dY < 0) {
+      setScroll(0);
     }
-    console.log("scroll: ", scroll, "ratio: ", scroll / width);
   };
 
   useEffect(() => {
@@ -206,7 +208,7 @@ export default function Cases() {
                 key={caseItem.id}
                 onClick={(e) => productAnimation(e, index)}
                 style={{
-                  transform: `translateX(${scroll - width * counter}px)`,
+                  transform: `translateX(${scroll}px)`,
                 }}
               >
                 <div className={`case-details case-details-${index + 1}`}>
@@ -227,7 +229,6 @@ export default function Cases() {
           {caseStudies.map((caseItem, index) => (
             <div
               className={
-                // "case-image-zoom" + (active[index].active ? "active" : "")
                 "case-image-zoom"
               }
               key={caseItem.id}
@@ -244,77 +245,3 @@ export default function Cases() {
     </section>
   );
 }
-
-// useEffect(() => {
-//   var root = document.documentElement;
-//   var body = document.body;
-//   var pages = document.querySelectorAll(".page");
-//   var tiles = document.querySelectorAll(".tile");
-
-//   const firstTile = document.querySelector(".tile");
-//   const rect2 = firstTile.getBoundingClientRect;
-//   console.log(rect2);
-
-//   for (var i = 0; i < tiles.length; i++) {
-//     addListeners(tiles[i], pages[i]);
-//   }
-
-//   function addListeners(tile, page) {
-//     tile.addEventListener("click", function () {
-//       animateHero(tile, page);
-//     });
-
-//     page.addEventListener("click", function () {
-//       animateHero(page, tile);
-//     });
-//   }
-
-//   function animateHero(fromHero, toHero) {
-//     var clone = fromHero.cloneNode(true);
-
-//     var from = calculatePosition(fromHero);
-//     var to = calculatePosition(toHero);
-
-//     tl.set([fromHero, toHero], { visibility: "hidden" });
-//     tl.set(clone, { position: "absolute", margin: 0 });
-
-//     body.appendChild(clone);
-
-//     var style = {
-//       x: to.left - from.left,
-//       y: to.top - from.top,
-//       width: to.width,
-//       height: to.height,
-//       autoRound: false,
-//       ease: "Power1.easeOut",
-//       onComplete: onComplete,
-//     };
-
-//     tl.set(clone, from);
-//     tl.to(clone, 0.3, style);
-
-//     function onComplete() {
-//       tl.set(toHero, { visibility: "visible" });
-//       body.removeChild(clone);
-//     }
-//   }
-
-//   function calculatePosition(element) {
-//     var rect = element.getBoundingClientRect();
-
-//     var scrollTop =
-//       window.pageYOffset || root.scrollTop || body.scrollTop || 0;
-//     var scrollLeft =
-//       window.pageXOffset || root.scrollLeft || body.scrollLeft || 0;
-
-//     var clientTop = root.clientTop || body.clientTop || 0;
-//     var clientLeft = root.clientLeft || body.clientLeft || 0;
-
-//     return {
-//       top: Math.round(rect.top + scrollTop - clientTop),
-//       left: Math.round(rect.left + scrollLeft - clientLeft),
-//       height: rect.height,
-//       width: rect.width,
-//     };
-//   }
-// });
