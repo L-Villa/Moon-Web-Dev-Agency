@@ -102,7 +102,7 @@ export default function Cases() {
     const offsets = e.target.getBoundingClientRect();
     const top = offsets.y;
     const left = offsets.x;
-    const bottom = offsets.bottom;
+    // const bottom = offsets.bottom;
     const height = offsets.height;
     const width = offsets.width;
     console.log("target: ", offsets);
@@ -146,14 +146,20 @@ export default function Cases() {
   //? change width so that it's not static
   const handleNext = (e) => {
     e.stopPropagation();
-    if (counter < caseStudies.length - 3) {
+    if (
+      counter < caseStudies.length - 3 &&
+      scroll >= (caseStudies.length - 3) * -width
+    ) {
       setCounter(counter + 3);
     }
   };
   const handlePrev = (e) => {
     e.stopPropagation();
-    if (counter > 2 || scroll > width * 3) {
-      setCounter(counter - 3);
+    if (scroll < -width * 3) {
+      setScroll(scroll + width * 3);
+      console.log("clicked: ", scroll);
+    } else {
+      setScroll(0);
     }
   };
 
@@ -162,6 +168,7 @@ export default function Cases() {
     if (scroll >= (caseStudies.length - 3) * -width + dY && scroll <= 0 + dY) {
       setScroll(scroll - dY);
     }
+    console.log('scroll: ', scroll, 'ratio: ', scroll / width);
   };
 
   useEffect(() => {
@@ -178,7 +185,9 @@ export default function Cases() {
         <div className="container-fluid">
           <div className="cases-navigation">
             <div
-              className={"cases-arrow prev" + (counter < 2 ? " disabled" : "")}
+              className={
+                "cases-arrow prev" + (scroll === 0 ? " disabled" : "")
+              }
               onClick={handlePrev}
             >
               <CasesPrev />
