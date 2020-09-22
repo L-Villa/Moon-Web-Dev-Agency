@@ -9,69 +9,58 @@ const caseStudies = [
     subtitle: "Curology",
     title: "A custom formula for your skin's unique needs",
     img: "curology-min",
-    active: false,
   },
   {
     id: 2,
     subtitle: "Yourspace",
     title: "Open space floor plans for your next venture",
     img: "yourspace-min",
-    active: false,
   },
   {
     id: 3,
     subtitle: "Lumin",
     title: "For your best look ever",
     img: "lumin-min",
-    active: false,
   },
   {
     id: 4,
     subtitle: "Lumin",
     title: "For your best look ever",
     img: "lumin-min",
-    active: false,
   },
   {
     id: 5,
     subtitle: "Yourspace",
     title: "Open space floor plans for your next venture",
     img: "yourspace-min",
-    active: false,
   },
   {
     id: 6,
     subtitle: "Curology",
     title: "A custom formula for your skin's unique needs",
     img: "curology-min",
-    active: false,
   },
   {
     id: 7,
     subtitle: "Curology",
     title: "A custom formula for your skin's unique needs",
     img: "curology-min",
-    active: false,
   },
   {
     id: 8,
     subtitle: "Yourspace",
     title: "Open space floor plans for your next venture",
     img: "yourspace-min",
-    active: false,
   },
   {
     id: 9,
     subtitle: "Lumin",
     title: "For your best look ever",
     img: "lumin-min",
-    active: false,
   },
 ];
 
 const tl = gsap.timeline();
-
-//? use useEffect to monitor the case active? If active === true then run gsap
 
 export default function Cases() {
   const [width, setWidth] = useState(853);
@@ -212,14 +201,9 @@ export default function Cases() {
             ))}
           </div>
         </div>
-        <div className="bruh">
+        <div className="case-image-zoom-container">
           {caseStudies.map((caseItem, index) => (
-            <div
-              className={
-                "case-image-zoom"
-              }
-              key={caseItem.id}
-            >
+            <div className={"case-image-zoom"} key={caseItem.id}>
               <img
                 src={require(`../assets/${caseItem.img}.png`)}
                 alt={caseItem.title}
