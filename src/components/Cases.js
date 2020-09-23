@@ -72,6 +72,19 @@ const caseStudies = [
 
 const tl = gsap.timeline();
 
+const timings = {
+  caseDetails: {
+    duration: 0.5,
+  },
+  animationContainer: {
+    duration: 0,
+  },
+  animatedCase: {
+    duration: 0.7,
+    delay: 0.1,
+  },
+};
+
 function Cases(props) {
   const [width, setWidth] = useState(853);
   const [scroll, setScroll] = useState(0);
@@ -96,12 +109,12 @@ function Cases(props) {
     for (let i = 0; i < caseStudies.length; i++) {
       if (index === i) {
         tl.to(`.case-details-${i + 1}`, {
-          duration: 1,
+          duration: timings.caseDetails.duration,
           opacity: 0,
         })
           .to(".case-image-zoom-container", {
-            duration: 0,
-            delay: -1,
+            duration: timings.animationContainer.duration,
+            delay: -timings.caseDetails.duration,
             top: scrollTop,
           })
           .fromTo(
@@ -114,8 +127,8 @@ function Cases(props) {
               height: initialHeight,
             },
             {
-              duration: 2,
-              delay: 0.2,
+              duration: timings.animatedCase.duration,
+              delay: timings.animatedCase.delay,
               visibility: "visible",
               y: windowTop,
               x: scrollLeft,
@@ -126,6 +139,17 @@ function Cases(props) {
           );
       }
     }
+  };
+
+  const delayRedirect = (e, to) => {
+    const {
+      history: { push },
+    } = props;
+    e.preventDefault();
+    setTimeout(() => push(to),   
+      (timings.caseDetails.duration +
+      timings.animatedCase.duration +
+      timings.animatedCase.delay + 0.2) * 1000);
   };
 
   //! change width so that it's not static
@@ -156,14 +180,6 @@ function Cases(props) {
     } else if (scroll > dY && dY < 0) {
       setScroll(0);
     }
-  };
-
-  const delayRedirect = (e, to) => {
-    const {
-      history: { push },
-    } = props;
-    e.preventDefault();
-    setTimeout(() => push(to), 3500);
   };
 
   useEffect(() => {
