@@ -76,7 +76,7 @@ function App() {
       <div className="App">
         {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>
-            <Component />
+            <Component dimensions={dimensions} />
           </Route>
         ))}
       </div>

@@ -35,7 +35,7 @@ const homeAnimation = (completeAnimation) => {
     });
 }
 
-export default function Home() {
+export default function Home(props) {
   const [animationComplete, setAnimationComplete] = useState(false);
 
   const completeAnimation = () => {
@@ -50,7 +50,7 @@ export default function Home() {
     <div>
       {animationComplete === false ? <IntroOverlay /> : ""}
       <Banner />
-      <Cases />
+      <Cases dimensions={props.dimensions} />
     </div>
   );
 }

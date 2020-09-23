@@ -86,9 +86,9 @@ const timings = {
 };
 
 function Cases(props) {
-  const [width, setWidth] = useState(853);
+  const width = props.dimensions.width / 3;
   const [scroll, setScroll] = useState(0);
-
+  
   const productAnimation = (e, index) => {
     const scrollTop = window.pageYOffset;
     const scrollLeft = window.pageXOffset;
@@ -152,7 +152,6 @@ function Cases(props) {
       timings.animatedCase.delay + 0.2) * 1000);
   };
 
-  //! change width so that it's not static
   //! only run these functions if page size is large enough
   const handleNext = (e) => {
     e.stopPropagation();
