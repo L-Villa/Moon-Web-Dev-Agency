@@ -88,7 +88,7 @@ const timings = {
 function Cases(props) {
   const width = props.dimensions.width / 3;
   const [scroll, setScroll] = useState(0);
-  
+
   const handleCaseClick = (e, index) => {
     const scrollTop = window.pageYOffset;
     const scrollLeft = window.pageXOffset;
@@ -146,10 +146,14 @@ function Cases(props) {
       history: { push },
     } = props;
     e.preventDefault();
-    setTimeout(() => push(to),   
+    setTimeout(
+      () => push(to),
       (timings.caseDetails.duration +
-      timings.animatedCase.duration +
-      timings.animatedCase.delay + 0.2) * 1000);
+        timings.animatedCase.duration +
+        timings.animatedCase.delay +
+        0.2) *
+        1000
+    );
   };
 
   //! only run these functions if page size is large enough
@@ -172,6 +176,7 @@ function Cases(props) {
 
   const handleScroll = (e) => {
     const dY = e.deltaY * 20;
+    if (props.dimensions.width > 768) {
       if (scroll >= (caseStudies.length - 3) * -width + dY && scroll <= dY) {
         setScroll(scroll - dY);
       } else if (scroll < (caseStudies.length - 3) * -width + dY && dY > 0) {
@@ -179,6 +184,7 @@ function Cases(props) {
       } else if (scroll > dY && dY < 0) {
         setScroll(0);
       }
+    }
   };
 
   useEffect(() => {
