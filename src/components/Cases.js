@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
 import gsap from "gsap";
 import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
 import { ReactComponent as CasesPrev } from "../assets/arrow-left.svg";
@@ -9,60 +10,69 @@ const caseStudies = [
     subtitle: "Curology",
     title: "A custom formula for your skin's unique needs",
     img: "curology-min",
+    to: "/case-study/curology",
   },
   {
     id: 2,
     subtitle: "Yourspace",
     title: "Open space floor plans for your next venture",
     img: "yourspace-min",
+    to: "/case-study/curology",
   },
   {
     id: 3,
     subtitle: "Lumin",
     title: "For your best look ever",
     img: "lumin-min",
+    to: "/case-study/curology",
   },
   {
     id: 4,
     subtitle: "Lumin",
     title: "For your best look ever",
     img: "lumin-min",
+    to: "/case-study/curology",
   },
   {
     id: 5,
     subtitle: "Yourspace",
     title: "Open space floor plans for your next venture",
     img: "yourspace-min",
+    to: "/case-study/curology",
   },
   {
     id: 6,
     subtitle: "Curology",
     title: "A custom formula for your skin's unique needs",
     img: "curology-min",
+    to: "/case-study/curology",
   },
   {
     id: 7,
     subtitle: "Curology",
     title: "A custom formula for your skin's unique needs",
     img: "curology-min",
+    to: "/case-study/curology",
   },
   {
     id: 8,
     subtitle: "Yourspace",
     title: "Open space floor plans for your next venture",
     img: "yourspace-min",
+    to: "/case-study/curology",
   },
   {
     id: 9,
     subtitle: "Lumin",
     title: "For your best look ever",
     img: "lumin-min",
+    to: "/case-study/curology",
   },
 ];
 
 const tl = gsap.timeline();
 
-export default function Cases() {
+function Cases(props) {
   const [width, setWidth] = useState(853);
   const [scroll, setScroll] = useState(0);
 
@@ -89,7 +99,7 @@ export default function Cases() {
           duration: 1,
           opacity: 0,
         })
-          .to(".bruh", {
+          .to(".case-image-zoom-container", {
             duration: 0,
             delay: -1,
             top: scrollTop,
@@ -148,6 +158,14 @@ export default function Cases() {
     }
   };
 
+  const delayRedirect = (e, to) => {
+    const {
+      history: { push },
+    } = props;
+    e.preventDefault();
+    setTimeout(() => push(to), 3500);
+  };
+
   useEffect(() => {
     document.body.addEventListener("wheel", newHandleScroll);
 
@@ -179,25 +197,33 @@ export default function Cases() {
           </div>
           <div className="row">
             {caseStudies.map((caseItem, index) => (
-              <div
-                className="case"
-                key={caseItem.id}
-                onClick={(e) => productAnimation(e, index)}
-                style={{
-                  transform: `translateX(${scroll}px)`,
+              <Link
+                to={{
+                  pathname: caseItem.to,
+                  hash: null,
                 }}
+                onClick={(e) => delayRedirect(e, caseItem.to)}
+                key={caseItem.id}
               >
-                <div className={`case-details case-details-${index + 1}`}>
-                  <span>{caseItem.subtitle}</span>
-                  <h2> {caseItem.title} </h2>
+                <div
+                  className="case"
+                  onClick={(e) => productAnimation(e, index)}
+                  style={{
+                    transform: `translateX(${scroll}px)`,
+                  }}
+                >
+                  <div className={`case-details case-details-${index + 1}`}>
+                    <span>{caseItem.subtitle}</span>
+                    <h2> {caseItem.title} </h2>
+                  </div>
+                  <div className="case-image">
+                    <img
+                      src={require(`../assets/${caseItem.img}.png`)}
+                      alt={caseItem.title}
+                    />
+                  </div>
                 </div>
-                <div className="case-image">
-                  <img
-                    src={require(`../assets/${caseItem.img}.png`)}
-                    alt={caseItem.title}
-                  />
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -215,3 +241,5 @@ export default function Cases() {
     </section>
   );
 }
+
+export default withRouter(Cases);
