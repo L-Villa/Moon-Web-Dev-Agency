@@ -89,7 +89,7 @@ function Cases(props) {
   const width = props.dimensions.width / 3;
   const [scroll, setScroll] = useState(0);
   
-  const productAnimation = (e, index) => {
+  const handleCaseClick = (e, index) => {
     const scrollTop = window.pageYOffset;
     const scrollLeft = window.pageXOffset;
     const windowOffsets = window.screen;
@@ -170,22 +170,22 @@ function Cases(props) {
     }
   };
 
-  const newHandleScroll = (e) => {
+  const handleScroll = (e) => {
     const dY = e.deltaY * 20;
-    if (scroll >= (caseStudies.length - 3) * -width + dY && scroll <= dY) {
-      setScroll(scroll - dY);
-    } else if (scroll < (caseStudies.length - 3) * -width + dY && dY > 0) {
-      setScroll((caseStudies.length - 3) * -width);
-    } else if (scroll > dY && dY < 0) {
-      setScroll(0);
-    }
+      if (scroll >= (caseStudies.length - 3) * -width + dY && scroll <= dY) {
+        setScroll(scroll - dY);
+      } else if (scroll < (caseStudies.length - 3) * -width + dY && dY > 0) {
+        setScroll((caseStudies.length - 3) * -width);
+      } else if (scroll > dY && dY < 0) {
+        setScroll(0);
+      }
   };
 
   useEffect(() => {
-    document.body.addEventListener("wheel", newHandleScroll);
+    document.body.addEventListener("wheel", handleScroll);
 
     return () => {
-      document.body.removeEventListener("wheel", newHandleScroll);
+      document.body.removeEventListener("wheel", handleScroll);
     };
   });
 
@@ -222,7 +222,7 @@ function Cases(props) {
               >
                 <div
                   className="case"
-                  onClick={(e) => productAnimation(e, index)}
+                  onClick={(e) => handleCaseClick(e, index)}
                   style={{
                     transform: `translateX(${scroll}px)`,
                   }}
