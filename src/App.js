@@ -11,6 +11,8 @@ import About from "./pages/About";
 import Approach from "./pages/Approach";
 import Services from "./pages/Services";
 
+import Curology from "./pages/Curology"
+
 const routes = [
   {
     path: "/",
@@ -31,6 +33,11 @@ const routes = [
     path: "/services",
     name: "Services",
     Component: Services,
+  },
+  {
+    path: "/case-study/curology",
+    name: "Curology",
+    Component: Curology,
   },
 ];
 

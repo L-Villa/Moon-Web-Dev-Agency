@@ -150,13 +150,11 @@ function Cases(props) {
       () => push(to),
       (timings.caseDetails.duration +
         timings.animatedCase.duration +
-        timings.animatedCase.delay +
-        0.2) *
+        timings.animatedCase.delay) *
         1000
     );
   };
 
-  //! only run these functions if page size is large enough
   const handleNext = (e) => {
     e.stopPropagation();
     if (scroll > (caseStudies.length - 6) * -width) {
