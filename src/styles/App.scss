@@ -22,7 +22,7 @@ html {
 }
 
 .container {
-  width: 1560px;
+  width: clamp(1560px, 75vw, 2000px);
   min-width: 1560px;
   margin: 0 auto;
   height: 100%;
@@ -62,7 +62,6 @@ html {
     height: 100%;
   }
 }
-
 
 .App {
   z-index: 2;
