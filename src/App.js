@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import gsap from "gsap";
 import "./styles/App.scss";
 
@@ -11,7 +11,7 @@ import About from "./pages/About";
 import Approach from "./pages/Approach";
 import Services from "./pages/Services";
 
-import Curology from "./pages/Curology"
+import Curology from "./pages/Curology";
 
 const routes = [
   {
@@ -81,11 +81,17 @@ function App() {
     <>
       <Header dimensions={dimensions} />
       <div className="App">
-        {routes.map(({ path, Component }) => (
-          <Route key={path} exact path={path}>
-            <Component dimensions={dimensions} />
+        <Switch>
+          {routes.map(({ path, Component }) => (
+            <Route key={path} exact path={path}>
+              <Component dimensions={dimensions} />
+            </Route>
+          ))}
+          <Route exact path="/404">
+            <Home dimensions={dimensions} />
           </Route>
-        ))}
+          <Redirect to="/404" />
+        </Switch>
       </div>
       <Navigation />
     </>
