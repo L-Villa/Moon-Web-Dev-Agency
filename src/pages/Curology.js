@@ -105,7 +105,7 @@ function Curology(history, props) {
             </div>
           );
         } else {
-          return <div key={i}/>
+          return null
         }
       })}
 
