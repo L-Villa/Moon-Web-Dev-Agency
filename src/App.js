@@ -39,6 +39,16 @@ const routes = [
     name: "Curology",
     Component: Curology,
   },
+  {
+    path: "/case-study/yourspace",
+    name: "Yourspace",
+    Component: Curology,
+  },
+  {
+    path: "/case-study/lumin",
+    name: "Lumin",
+    Component: Curology,
+  },
 ];
 
 function debounce(fn, ms) {

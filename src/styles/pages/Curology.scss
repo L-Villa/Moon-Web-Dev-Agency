@@ -1,7 +1,7 @@
 .case-study-landing {
   position: relative;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   background: black;
   img {
@@ -92,5 +92,14 @@
         transform: rotate(90deg);
       }
     }
+  }
+}
+
+.case-details {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  .text-container {
+    
   }
 }
