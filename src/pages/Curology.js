@@ -65,33 +65,28 @@ const nextPageTransition = gsap.timeline();
 const handleNextPageTransition = () => {
   nextPageTransition
     .to(".wave", {
-      duration: 1,
+      duration: 0.7,
       top: "-105%",
       ease: "power4.easeIn",
     })
     .to(".scroll-indicator", {
-      duration: 1,
-      delay: -1,
+      duration: 0.7,
+      delay: -0.7,
       top: "-100%",
       ease: "power4.easeIn",
     })
     .to(".text", {
-      duration: 1,
-      delay: -1,
+      duration: 0.7,
+      delay: -0.7,
       top: "-100%",
       ease: "power4.easeIn",
     })
     .to(".next-page-landing-image", {
-      duration: 0.7,
-      delay: -1,
-      top: "20%",
-      ease: "power4.easeIn",
-    })
-    .from(".next-page-landing-image", {
-      duration: 0.8,
+      duration: 0.5,
       delay: -0.7,
+      top: "20%",
       scale: 1.4,
-      ease: "power4.easeOut",
+      ease: "power4.easeIn",
     });
 };
 
@@ -205,7 +200,9 @@ function Curology(history) {
               <footer className="next-case">
                 <div className="next-page-landing-image">
                   <img
-                    src={require(`../assets/${study.image}.png`)}
+                    src={require(`../assets/${
+                      cases[i >= cases.length - 1 ? 0 : i + 1].image
+                    }.png`)}
                     alt={study.name}
                   />
                 </div>
@@ -227,7 +224,11 @@ function Curology(history) {
                   <path d="M0,2.9c239.7-18.1,477.8,48.7,707.6,165.8c229.3,105.1,440.1,259.7,657,241.2 c28.5-2.7,53.5-8.5,75.4-16.7l0,763.9c-239.7,18.1-477.8-48.7-707.6-165.8C496.9,886.1,286.1,731.5,81.6,750 c-31.1,2.8-58.2,8.6-81.6,17L0,2.9z"></path>
                 </svg>
                 <div className="scroll-indicator">
-                  <p>Next Case</p>
+                  <p>
+                    {cases[i >= cases.length - 1 ? 0 : i + 1].span1 +
+                      " " +
+                      cases[i >= cases.length - 1 ? 0 : i + 1].span2}
+                  </p>
                   <div
                     style={{ background: hover ? "black" : "" }}
                     className="scroll-arrow"
