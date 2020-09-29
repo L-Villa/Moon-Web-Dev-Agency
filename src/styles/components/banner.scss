@@ -26,9 +26,7 @@
       }
     }
     .btn-row {
-      width: 256px;
       width: clamp(256px, 20vw, 300px);
-
       position: relative;
       z-index: 2;
       a {
