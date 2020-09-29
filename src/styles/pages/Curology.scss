@@ -197,12 +197,94 @@
 }
 
 .case-study-images {
-  height: 125vh;
   width: 100%;
   img {
-    height: 100%;
+    height: 125vh;
     width: 100%;
     object-fit: cover;
     display: block;
+  }
+}
+
+.next-case {
+  position: relative;
+  height: 125vh;
+  width: 100%;
+  overflow: hidden;
+  .text {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    overflow: hidden;
+    h2 {
+      position: relative;
+      top: 0px;
+      margin: 0rem;
+      font-size: 14rem;
+      font-weight: 500;
+      letter-spacing: -1.5rem;
+      transition: top 0.5s;
+    }
+  }
+  .wave {
+    position: absolute;
+    top: 40%;
+    fill: rgb(191, 235, 255);
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    &:nth-of-type(2) {
+      fill: rgb(123, 213, 255);
+    }
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  .scroll-indicator {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    margin: 10rem 0rem;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    pointer-events: none;
+    color: $black;
+    z-index: 6;
+    letter-spacing: -0.1rem;
+    @include media("<=1400px") {
+      right: 50%;
+      transform: translate(50%, 0);
+      margin: 1rem 0;
+    }
+    p {
+      font-size: clamp(1.1rem, 4vw, 1.7rem);
+      margin: 0;
+      margin-right: clamp(1rem, 4vw, 1.2rem);
+    }
+    .scroll-arrow {
+      height: clamp(50px, 4vw, 60px);
+      width: clamp(50px, 4vw, 60px);
+      border: 3px solid black;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: all;
+      svg {
+        color: $black;
+        height: clamp(25px, 2vw, 35px);
+        width: clamp(25px, 2vw, 35px);
+        transform: rotate(90deg);
+      }
+    }
   }
 }
