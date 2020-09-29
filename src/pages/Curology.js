@@ -11,6 +11,14 @@ const cases = [
     name: "Curology",
     span1: "A custom formula for",
     span2: "your skin's unique needs",
+    mainCopy: `Forget “custom” algorithms. You’re matched with a
+    Curology provider who gets to know your skin. They’ll
+    ask questions, check your progress, and stick by you.
+    Forget “custom” algorithms. You’re matched with a
+    Curology provider who gets to know your skin. They’ll
+    ask questions, check your progress, and stick by you.`,
+    mission:
+      "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
   },
   {
     pathname: "/case-study/yourspace",
@@ -18,6 +26,10 @@ const cases = [
     name: "Yourspace",
     span1: "Open space floor plans",
     span2: "for your next venture",
+    mainCopy:
+      "An interior design company based in Switzerland with designers from around the world. Experts who know how to make your house feel like home. Designers who can make your office as productive as possible. An interior design company based in Switzerland with designers from around the world. Experts who know how to make your house feel like home. Designers who can make your office as productive as possible.",
+    mission:
+      "The Yourspace team called upon our services to help them carry out the creation of their eCommerce store.",
   },
   {
     pathname: "/case-study/lumin",
@@ -25,6 +37,10 @@ const cases = [
     name: "Lumin",
     span1: "For your best",
     span2: "look ever",
+    mainCopy:
+      "Hand back your partner/mom/sister’s eye cream, cause it just ain’t gonna cut it. Men’s skin is a whole other ball game—it’s thicker, tougher, and structured differently than women’s. We craft products tailored to your skin type and formulate regimens that actually take your skin issues head-on.",
+    mission:
+      "The Lumin team called upon our services to help them carry out the creation of their eCommerce store.",
   },
 ];
 
@@ -51,9 +67,7 @@ function Curology(history, props) {
         opacity: 1,
       });
 
-      return () => {
-        
-      };
+    return () => {};
   });
 
   return (
@@ -91,61 +105,61 @@ function Curology(history, props) {
               <section className="case-details">
                 <div className="container">
                   <div className="row">
-                    <div className="text-container">
-                      <h2>Blah</h2>
-                      <p>Blah Blah</p>
+                    <div className="text-container text-container-lg">
+                      <p>
+                        Forget “custom” algorithms. You’re matched with a
+                        Curology provider who gets to know your skin. They’ll
+                        ask questions, check your progress, and stick by you.
+                        Forget “custom” algorithms. You’re matched with a
+                        Curology provider who gets to know your skin. They’ll
+                        ask questions, check your progress, and stick by you.
+                      </p>
+                      <h2>Mission</h2>
+                      <p>
+                        The Curology team called upon our services to help them
+                        carry out the creation of their eCommerce store.
+                      </p>
                     </div>
-                    <div className="text-container">
-                      <h2>Blah</h2>
-                      <p>Blah Blah</p>
+                    <div className="text-container text-container-sm">
+                      <h2>Services</h2>
+                      <ul>
+                        <li>Digital Strategy</li>
+                        <li>eCommerce Design</li>
+                        <li>eCommerce Development</li>
+                      </ul>
+                      <div className="btn-row">
+                        <a href="/">
+                          Website <CasesNext />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </section>
+              <section className="case-study-images">
+                <img
+                  src={require(`../assets/${study.image}.png`)}
+                  alt={study.name}
+                />
+                <img
+                  src={require(`../assets/${study.image}.png`)}
+                  alt={study.name}
+                />
+                <img
+                  src={require(`../assets/${study.image}.png`)}
+                  alt={study.name}
+                />
+                <img
+                  src={require(`../assets/${study.image}.png`)}
+                  alt={study.name}
+                />
+              </section>
             </div>
           );
         } else {
-          return null
+          return null;
         }
       })}
-
-      {/* <section className="case-study-landing">
-        <img src={curology} alt="curology" />
-        <div className="container">
-          <div className="case-study-text-container">
-            <p>Curology</p>
-            <h2>
-              <div className="line">
-                <span>A custom formula for </span>
-              </div>
-              <div className="line">
-                <span>your skin's unique needs</span>
-              </div>
-            </h2>
-          </div>
-          <div className="scroll-indicator">
-            <p>Scroll Down</p>
-            <div className="scroll-arrow">
-              <CasesNext />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="case-details">
-        <div className="container">
-          <div className="row">
-            <div className="text-container">
-              <h2>Blah</h2>
-              <p>Blah Blah</p>
-            </div>
-            <div className="text-container">
-              <h2>Blah</h2>
-              <p>Blah Blah</p>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 }
