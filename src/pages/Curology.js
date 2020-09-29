@@ -60,8 +60,42 @@ const cases = [
 ];
 
 const tl = gsap.timeline();
+const nextPageTransition = gsap.timeline();
 
-function Curology(history, props) {
+const handleNextPageTransition = () => {
+  nextPageTransition
+    .to(".wave", {
+      duration: 1,
+      top: "-105%",
+      ease: "power4.easeIn",
+    })
+    .to(".scroll-indicator", {
+      duration: 1,
+      delay: -1,
+      top: "-100%",
+      ease: "power4.easeIn",
+    })
+    .to(".text", {
+      duration: 1,
+      delay: -1,
+      top: "-100%",
+      ease: "power4.easeIn",
+    })
+    .to(".next-page-landing-image", {
+      duration: 0.7,
+      delay: -1,
+      top: "20%",
+      ease: "power4.easeIn",
+    })
+    .from(".next-page-landing-image", {
+      duration: 0.8,
+      delay: -0.7,
+      scale: 1.4,
+      ease: "power4.easeOut",
+    });
+};
+
+function Curology(history) {
   const [hover, setHover] = useState(false);
 
   useEffect(() => {
@@ -169,7 +203,13 @@ function Curology(history, props) {
                 />
               </section>
               <footer className="next-case">
-                <svg className="wave" viewBox="0 0 1440 1160">
+                <div className="next-page-landing-image">
+                  <img
+                    src={require(`../assets/${study.image}.png`)}
+                    alt={study.name}
+                  />
+                </div>
+                <svg className="wave" id="wave" viewBox="0 0 1440 1160">
                   <path d="M932.3,18.1c175.5,17.3,350.3,60.5,507.7,54.7l0,316.1l0,0l0,141l0,141l0,0l0,316.1 c-155.7-5.7-328.6,36.5-502.4,54.2l-5.3,0.5c-310,43.7-607.6,13.2-860.8-145.9c-24.7-15-48.6-31.6-71.5-49.7l0,0l0-316.2l0-316.2 c22.9-18,46.8-34.6,71.5-49.7C324.8,4.9,622.3-25.6,932.3,18.1z"></path>
                 </svg>
                 <div className="text">
@@ -177,9 +217,11 @@ function Curology(history, props) {
                   <h2 style={{ top: hover ? "-100%" : "0" }}>Click Me</h2>
                 </div>
                 <svg
+                  onClick={handleNextPageTransition}
                   onMouseEnter={handleWaveEnter}
                   onMouseLeave={handleWaveLeave}
                   className="wave"
+                  id="wave"
                   viewBox="0 0 1440 1160"
                 >
                   <path d="M0,2.9c239.7-18.1,477.8,48.7,707.6,165.8c229.3,105.1,440.1,259.7,657,241.2 c28.5-2.7,53.5-8.5,75.4-16.7l0,763.9c-239.7,18.1-477.8-48.7-707.6-165.8C496.9,886.1,286.1,731.5,81.6,750 c-31.1,2.8-58.2,8.6-81.6,17L0,2.9z"></path>
