@@ -3,10 +3,9 @@ import { withRouter, Link } from "react-router-dom";
 import gsap from "gsap";
 import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
 
-//todo: add scrolling function to scroll down indicator
-//todo: go make custom images for case studies
-//todo: add dynamic images based on url
+//todo: try a different secondary image size
 //todo: fix the header
+//todo: transfer cases array into a json file
 
 const cases = [
   {
@@ -24,11 +23,17 @@ const cases = [
     mission:
       "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
     services: ["Digital Strategy", "eCommerce Design", "eCommerce Development"],
-    secondary: [
+    secondaryImages: [
       "curology-bottles-in-white-cabinet",
       "curology-bottles-on-pink-background",
       "curology-bottles-on-pink-water",
       "curology-bottles-over-website",
+    ],
+    secondaryImageAlt: [
+      "curology bottles in white cabinet",
+      "curology bottles on pink background",
+      "curology bottles on pink water",
+      "curology bottles over website",
     ],
   },
   {
@@ -48,10 +53,15 @@ const cases = [
       "Digital Marketing Strategy",
       "3D Imagery",
     ],
-    secondary: [
+    secondaryImages: [
       "yourspace-open-office-desk-in-center",
       "yourspace-open-office-desk-on-left",
       "yourspace-open-office-desk-on-right",
+    ],
+    secondaryImageAlt: [
+      "yourspace open office desk in center",
+      "yourspace open office desk on left",
+      "yourspace open office desk on right",
     ],
   },
   {
@@ -72,16 +82,28 @@ const cases = [
       "eCommerce Development",
       "Social Media Marketing",
     ],
-    secondary: [
+    secondaryImages: [
+      "lumin-bottles-with-one-sample-swatch",
       "lumin-black-and-green-bottles-on-stones",
       "lumin-bottles-arranged-on-white-background",
       "lumin-bottles-on-round-stone",
       "lumin-bottles-on-stones",
-      "lumin-bottles-with-one-sample-swatch",
       "lumin-bottles-with-two-sample-swatches",
+    ],
+    secondaryImageAlt: [
+      "lumin bottles with one sample swatch",
+      "lumin black and green bottles on stones",
+      "lumin bottles arranged on white background",
+      "lumin bottles on round stone",
+      "lumin bottles on stones",
+      "lumin bottles with two sample swatches",
     ],
   },
 ];
+
+const handleScrollIndicator = () => {
+  document.getElementById("case-details").scrollIntoView({behavior: "smooth"});
+};
 
 const tl = gsap.timeline();
 const nextPageTransition = gsap.timeline();
@@ -190,7 +212,10 @@ function Curology(history) {
                       </div>
                     </h2>
                   </div>
-                  <div className="scroll-indicator">
+                  <div
+                    className="scroll-indicator"
+                    onClick={handleScrollIndicator}
+                  >
                     <p>Scroll Down</p>
                     <div className="scroll-arrow">
                       <CasesNext />
@@ -199,7 +224,7 @@ function Curology(history) {
                 </div>
               </section>
 
-              <section className="case-details">
+              <section className="case-details" id="case-details">
                 <div className="container">
                   <div className="row">
                     <div className="text-container text-container-lg">
@@ -224,12 +249,12 @@ function Curology(history) {
                 </div>
               </section>
               <section className="case-study-images">
-                {study.secondary.map((secondary, index) => {
+                {study.secondaryImages.map((secondaryImage, index) => {
                   return (
                     <img
                       key={index}
-                      src={require(`../assets/secondary/${secondary}.png`)}
-                      alt={study.name}
+                      src={require(`../assets/secondary/${secondaryImage}.png`)}
+                      alt={study.secondaryImageAlt[index]}
                     ></img>
                   );
                 })}
