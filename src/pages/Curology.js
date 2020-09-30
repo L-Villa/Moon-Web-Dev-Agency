@@ -4,7 +4,6 @@ import gsap from "gsap";
 import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
 
 //todo: try a different secondary image size
-//todo: fix the header
 //todo: transfer cases array into a json file
 
 const cases = [
@@ -101,12 +100,30 @@ const cases = [
   },
 ];
 
-const handleScrollIndicator = () => {
-  document.getElementById("case-details").scrollIntoView({behavior: "smooth"});
-};
-
-const tl = gsap.timeline();
+const initialAnimation = gsap.timeline();
 const nextPageTransition = gsap.timeline();
+
+const handleInitialAnimation = () => {
+  initialAnimation
+    .from(".case-study-text-container", {
+      duration: 2,
+      delay: 0.2,
+      opacity: 0,
+    })
+    .from(".line span", {
+      duration: 2,
+      delay: -2,
+      y: 125,
+      skewY: 7,
+      stagger: 0.3,
+      ease: "power4.out",
+    })
+    .to(".scroll-indicator", {
+      duration: 2,
+      delay: -2,
+      opacity: 1,
+    });
+};
 
 const handleNextPageTransition = () => {
   window.scrollTo({
@@ -146,6 +163,12 @@ const handleNextPageTransition = () => {
     });
 };
 
+const handleScrollIndicator = () => {
+  document
+    .getElementById("case-details")
+    .scrollIntoView({ behavior: "smooth" });
+};
+
 function Curology(history) {
   const [hover, setHover] = useState(false);
 
@@ -156,38 +179,20 @@ function Curology(history) {
     e.preventDefault();
     setTimeout(() => push(to), 0.7 * 1000);
   };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-
-    tl.from(".case-study-text-container", {
-      duration: 2,
-      delay: 0.2,
-      opacity: 0,
-    })
-      .from(".line span", {
-        duration: 2,
-        delay: -2,
-        y: 125,
-        skewY: 7,
-        stagger: 0.3,
-        ease: "power4.out",
-      })
-      .to(".scroll-indicator", {
-        duration: 2,
-        delay: -2,
-        opacity: 1,
-      });
-
-    return () => {};
-  }, []);
-
   const handleWaveEnter = () => {
     setHover(true);
   };
   const handleWaveLeave = () => {
     setHover(false);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    handleInitialAnimation();
+
+    return () => {};
+  }, []);
 
   return (
     <div>
