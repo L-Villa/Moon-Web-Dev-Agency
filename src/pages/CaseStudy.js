@@ -246,9 +246,7 @@ function CaseStudy(history) {
                         })}
                       </ul>
                       <div className="btn-row">
-                        <a href="/">
-                          Website <CasesNext />
-                        </a>
+                        Website <CasesNext />
                       </div>
                     </div>
                   </div>
