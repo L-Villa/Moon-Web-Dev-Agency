@@ -24,6 +24,12 @@ const cases = [
     mission:
       "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
     services: ["Digital Strategy", "eCommerce Design", "eCommerce Development"],
+    secondary: [
+      "curology-bottles-in-white-cabinet",
+      "curology-bottles-on-pink-background",
+      "curology-bottles-on-pink-water",
+      "curology-bottles-over-website",
+    ],
   },
   {
     pathname: "/case-study/yourspace",
@@ -41,6 +47,11 @@ const cases = [
       "eCommerce Development",
       "Digital Marketing Strategy",
       "3D Imagery",
+    ],
+    secondary: [
+      "yourspace-open-office-desk-in-center",
+      "yourspace-open-office-desk-on-left",
+      "yourspace-open-office-desk-on-right",
     ],
   },
   {
@@ -60,6 +71,14 @@ const cases = [
       "eCommerce Design",
       "eCommerce Development",
       "Social Media Marketing",
+    ],
+    secondary: [
+      "lumin-black-and-green-bottles-on-stones",
+      "lumin-bottles-arranged-on-white-background",
+      "lumin-bottles-on-round-stone",
+      "lumin-bottles-on-stones",
+      "lumin-bottles-with-one-sample-swatch",
+      "lumin-bottles-with-two-sample-swatches",
     ],
   },
 ];
@@ -92,13 +111,13 @@ const handleNextPageTransition = () => {
       ease: "power4.easeIn",
     })
     .to(".next-page-landing-image", {
-      duration: 0.5,
+      duration: 0.4,
       delay: -0.7,
       top: "20%",
       ease: "power4.easeIn",
     })
     .from(".next-page-landing-image", {
-      duration: 0.5,
+      duration: 0.4,
       delay: -0.7,
       scale: 1.4,
       ease: "power4.easeIn",
@@ -205,22 +224,15 @@ function Curology(history) {
                 </div>
               </section>
               <section className="case-study-images">
-                <img
-                  src={require(`../assets/${study.image}.png`)}
-                  alt={study.name}
-                />
-                <img
-                  src={require(`../assets/${study.image}.png`)}
-                  alt={study.name}
-                />
-                <img
-                  src={require(`../assets/${study.image}.png`)}
-                  alt={study.name}
-                />
-                <img
-                  src={require(`../assets/${study.image}.png`)}
-                  alt={study.name}
-                />
+                {study.secondary.map((secondary, index) => {
+                  return (
+                    <img
+                      key={index}
+                      src={require(`../assets/secondary/${secondary}.png`)}
+                      alt={study.name}
+                    ></img>
+                  );
+                })}
               </section>
               <footer className="next-case">
                 <div className="next-page-landing-image">
