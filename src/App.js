@@ -11,7 +11,7 @@ import About from "./pages/About";
 import Approach from "./pages/Approach";
 import Services from "./pages/Services";
 
-import Curology from "./pages/Curology";
+import CaseStudy from "./pages/CaseStudy";
 
 const routes = [
   {
@@ -37,17 +37,17 @@ const routes = [
   {
     path: "/case-study/curology",
     name: "Curology",
-    Component: Curology,
+    Component: CaseStudy,
   },
   {
     path: "/case-study/yourspace",
     name: "Yourspace",
-    Component: Curology,
+    Component: CaseStudy,
   },
   {
     path: "/case-study/lumin",
     name: "Lumin",
-    Component: Curology,
+    Component: CaseStudy,
   },
 ];
 

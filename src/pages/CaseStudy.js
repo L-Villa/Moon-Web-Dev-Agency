@@ -5,6 +5,7 @@ import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
 
 //todo: try a different secondary image size
 //todo: transfer cases array into a json file
+//todo: fix media queries
 
 const cases = [
   {
@@ -169,7 +170,7 @@ const handleScrollIndicator = () => {
     .scrollIntoView({ behavior: "smooth" });
 };
 
-function Curology(history) {
+function CaseStudy(history) {
   const [hover, setHover] = useState(false);
 
   const delayRedirect = (e, to) => {
@@ -327,4 +328,4 @@ function Curology(history) {
   );
 }
 
-export default withRouter(Curology);
+export default withRouter(CaseStudy);
