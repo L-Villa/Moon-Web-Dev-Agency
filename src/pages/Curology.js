@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import gsap from "gsap";
 import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
 
@@ -85,6 +85,11 @@ const handleNextPageTransition = () => {
       duration: 0.5,
       delay: -0.7,
       top: "20%",
+      ease: "power4.easeIn",
+    })
+    .from(".next-page-landing-image", {
+      duration: 0.5,
+      delay: -0.7,
       scale: 1.4,
       ease: "power4.easeIn",
     });
@@ -93,7 +98,17 @@ const handleNextPageTransition = () => {
 function Curology(history) {
   const [hover, setHover] = useState(false);
 
+  const delayRedirect = (e, to) => {
+    const {
+      history: { push },
+    } = history;
+    e.preventDefault();
+    setTimeout(() => push(to), 0.7 * 1000);
+  };
+
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     tl.from(".case-study-text-container", {
       duration: 2,
       delay: 0.2,
@@ -114,7 +129,7 @@ function Curology(history) {
       });
 
     return () => {};
-  });
+  }, []);
 
   const handleWaveEnter = () => {
     setHover(true);
@@ -198,44 +213,57 @@ function Curology(history) {
                 />
               </section>
               <footer className="next-case">
-                <div className="next-page-landing-image">
-                  <img
-                    src={require(`../assets/${
-                      cases[i >= cases.length - 1 ? 0 : i + 1].image
-                    }.png`)}
-                    alt={study.name}
-                  />
-                </div>
-                <svg className="wave" id="wave" viewBox="0 0 1440 1160">
-                  <path d="M932.3,18.1c175.5,17.3,350.3,60.5,507.7,54.7l0,316.1l0,0l0,141l0,141l0,0l0,316.1 c-155.7-5.7-328.6,36.5-502.4,54.2l-5.3,0.5c-310,43.7-607.6,13.2-860.8-145.9c-24.7-15-48.6-31.6-71.5-49.7l0,0l0-316.2l0-316.2 c22.9-18,46.8-34.6,71.5-49.7C324.8,4.9,622.3-25.6,932.3,18.1z"></path>
-                </svg>
-                <div className="text">
-                  <h2 style={{ top: hover ? "-100%" : "0" }}>Next Page</h2>
-                  <h2 style={{ top: hover ? "-100%" : "0" }}>Click Me</h2>
-                </div>
-                <svg
-                  onClick={handleNextPageTransition}
-                  onMouseEnter={handleWaveEnter}
-                  onMouseLeave={handleWaveLeave}
-                  className="wave"
-                  id="wave"
-                  viewBox="0 0 1440 1160"
+                <Link
+                  to={{
+                    pathname: cases[i >= cases.length - 1 ? 0 : i + 1].pathname,
+                    hash: null,
+                  }}
+                  onClick={(e) =>
+                    delayRedirect(
+                      e,
+                      cases[i >= cases.length - 1 ? 0 : i + 1].pathname
+                    )
+                  }
                 >
-                  <path d="M0,2.9c239.7-18.1,477.8,48.7,707.6,165.8c229.3,105.1,440.1,259.7,657,241.2 c28.5-2.7,53.5-8.5,75.4-16.7l0,763.9c-239.7,18.1-477.8-48.7-707.6-165.8C496.9,886.1,286.1,731.5,81.6,750 c-31.1,2.8-58.2,8.6-81.6,17L0,2.9z"></path>
-                </svg>
-                <div className="scroll-indicator">
-                  <p>
-                    {cases[i >= cases.length - 1 ? 0 : i + 1].span1 +
-                      " " +
-                      cases[i >= cases.length - 1 ? 0 : i + 1].span2}
-                  </p>
-                  <div
-                    style={{ background: hover ? "black" : "" }}
-                    className="scroll-arrow"
-                  >
-                    <CasesNext style={{ color: hover ? "white" : "black" }} />
+                  <div className="next-page-landing-image">
+                    <img
+                      src={require(`../assets/${
+                        cases[i >= cases.length - 1 ? 0 : i + 1].image
+                      }.png`)}
+                      alt={study.name}
+                    />
                   </div>
-                </div>
+                  <svg className="wave" id="wave" viewBox="0 0 1440 1160">
+                    <path d="M932.3,18.1c175.5,17.3,350.3,60.5,507.7,54.7l0,316.1l0,0l0,141l0,141l0,0l0,316.1 c-155.7-5.7-328.6,36.5-502.4,54.2l-5.3,0.5c-310,43.7-607.6,13.2-860.8-145.9c-24.7-15-48.6-31.6-71.5-49.7l0,0l0-316.2l0-316.2 c22.9-18,46.8-34.6,71.5-49.7C324.8,4.9,622.3-25.6,932.3,18.1z"></path>
+                  </svg>
+                  <div className="text">
+                    <h2 style={{ top: hover ? "-100%" : "0" }}>Next Page</h2>
+                    <h2 style={{ top: hover ? "-100%" : "0" }}>Click Me</h2>
+                  </div>
+                  <svg
+                    onClick={handleNextPageTransition}
+                    onMouseEnter={handleWaveEnter}
+                    onMouseLeave={handleWaveLeave}
+                    className="wave"
+                    id="wave"
+                    viewBox="0 0 1440 1160"
+                  >
+                    <path d="M0,2.9c239.7-18.1,477.8,48.7,707.6,165.8c229.3,105.1,440.1,259.7,657,241.2 c28.5-2.7,53.5-8.5,75.4-16.7l0,763.9c-239.7,18.1-477.8-48.7-707.6-165.8C496.9,886.1,286.1,731.5,81.6,750 c-31.1,2.8-58.2,8.6-81.6,17L0,2.9z"></path>
+                  </svg>
+                  <div className="scroll-indicator">
+                    <p>
+                      {cases[i >= cases.length - 1 ? 0 : i + 1].span1 +
+                        " " +
+                        cases[i >= cases.length - 1 ? 0 : i + 1].span2}
+                    </p>
+                    <div
+                      style={{ background: hover ? "black" : "" }}
+                      className="scroll-arrow"
+                    >
+                      <CasesNext style={{ color: hover ? "white" : "black" }} />
+                    </div>
+                  </div>
+                </Link>
               </footer>
             </div>
           );
