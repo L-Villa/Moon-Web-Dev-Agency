@@ -68,6 +68,11 @@ const tl = gsap.timeline();
 const nextPageTransition = gsap.timeline();
 
 const handleNextPageTransition = () => {
+  window.scrollTo({
+    left: 0,
+    top: document.body.scrollHeight,
+    behavior: "smooth",
+  });
   nextPageTransition
     .to(".wave", {
       duration: 0.7,
