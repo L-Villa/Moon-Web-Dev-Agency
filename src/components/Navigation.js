@@ -32,7 +32,7 @@ export default function Navigation() {
             </ul>
           </div>
           <div className="nav-column">
-            <div className="nav-label">Contact</div>
+            <div className="nav-label contact-nav-label">Contact</div>
             <div className="nav-infos">
               <ul className="nav-info">
                 <li className="nav-info-label">Email</li>

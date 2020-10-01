@@ -17,11 +17,19 @@ function Header({ history, dimensions }) {
       gsap.to("nav", { css: { display: "block" } });
       gsap.to("body", { css: { overflow: "hidden" } });
 
-      tl.to(".App", {
-        duration: 1,
-        y: dimensions.width <= 654 ? "70vh" : dimensions.height / 2,
-        ease: "expo.inOut",
-      })
+      tl.to("nav", { duration: 0, css: { display: "block" } })
+        .to("body", { duration: 0, css: { overflow: "hidden" } })
+        .to(".App", {
+          duration: 1,
+          y: dimensions.width <= 654 ? "60vh" : dimensions.height / 2,
+          ease: "expo.inOut",
+        })
+        .to("nav", {
+          duration: 1,
+          delay: -1,
+          height: dimensions.width <= 654 ? "60vh" : dimensions.height / 2,
+          ease: "expo.inOut",
+        })
         .to(".hamburger-menu span", {
           duration: 0.6,
           delay: -1,
@@ -73,6 +81,12 @@ function Header({ history, dimensions }) {
         y: 0,
         ease: "expo.inOut",
       })
+        .to("nav", {
+          duration: 1,
+          delay: -1,
+          height: 0,
+          ease: "expo.inOut",
+        })
         .to("#circle", {
           duration: 0.6,
           delay: -0.6,
@@ -117,11 +131,8 @@ function Header({ history, dimensions }) {
           transformOrigin: "50% 0%",
           ease: "expo.inOut",
         })
-        .to("body", {
-          css: {
-            overflow: "auto",
-          },
-        });
+        .to("nav", { duration: 0, css: { display: "hidden" } })
+        .to("body", { duration: 0, css: { overflow: "auto" } });
     }
   }, [menuState.menuOpened, dimensions, history]);
 
