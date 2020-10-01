@@ -49,13 +49,13 @@ export default function Navigation() {
               </ul>
               <ul className="nav-info">
                 <li className="nav-info-label">Headquarters</li>
-                <li>Route du Jura 49</li>
-                <li>1700 Fribourg</li>
-                <li>Switzerland</li>
+                <li>123 A Common St</li>
+                <li>LA, California</li>
+                <li>United States</li>
               </ul>
               <ul className="nav-info">
                 <li className="nav-info-label">Phone</li>
-                <li>+41 (0) 75 510 28 70</li>
+                <li>+1 (123) 555 0101</li>
               </ul>
               <ul className="nav-info">
                 <li className="nav-info-label">Legal</li>
