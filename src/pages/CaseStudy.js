@@ -4,7 +4,6 @@ import gsap from "gsap";
 import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
 
 //todo: transfer cases array into a json file
-//todo: fix next page animation for mobile devices
 
 const cases = [
   {
