@@ -22,8 +22,8 @@ const cases = [
       "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
     services: ["Digital Strategy", "eCommerce Design", "eCommerce Development"],
     secondaryImages: [
-      "curology-bottles-in-white-cabinet",
       "curology-bottles-on-pink-background",
+      "curology-bottles-in-white-cabinet",
       "curology-bottles-on-pink-water",
       "curology-bottles-over-website",
     ],
