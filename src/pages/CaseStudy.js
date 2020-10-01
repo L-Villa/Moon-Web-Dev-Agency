@@ -3,9 +3,8 @@ import { withRouter, Link } from "react-router-dom";
 import gsap from "gsap";
 import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
 
-//todo: try a different secondary image size
 //todo: transfer cases array into a json file
-//todo: fix media queries
+//todo: fix next page animation for mobile devices
 
 const cases = [
   {
@@ -144,7 +143,7 @@ const handleNextPageTransition = () => {
       top: "-100%",
       ease: "power4.easeIn",
     })
-    .to(".text", {
+    .to(".scrolling-text", {
       duration: 0.7,
       delay: -0.7,
       top: "-100%",
@@ -189,9 +188,7 @@ function CaseStudy(history) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
     handleInitialAnimation();
-
     return () => {};
   }, []);
 
@@ -287,9 +284,9 @@ function CaseStudy(history) {
                   <svg className="wave" id="wave" viewBox="0 0 1440 1160">
                     <path d="M932.3,18.1c175.5,17.3,350.3,60.5,507.7,54.7l0,316.1l0,0l0,141l0,141l0,0l0,316.1 c-155.7-5.7-328.6,36.5-502.4,54.2l-5.3,0.5c-310,43.7-607.6,13.2-860.8-145.9c-24.7-15-48.6-31.6-71.5-49.7l0,0l0-316.2l0-316.2 c22.9-18,46.8-34.6,71.5-49.7C324.8,4.9,622.3-25.6,932.3,18.1z"></path>
                   </svg>
-                  <div className="text">
-                    <h2 style={{ top: hover ? "-100%" : "0" }}>Next Page</h2>
-                    <h2 style={{ top: hover ? "-100%" : "0" }}>Click Me</h2>
+                  <div className="scrolling-text">
+                    <h2 style={{ top: hover ? "-105%" : "0" }}>Next Page</h2>
+                    <h2 style={{ top: hover ? "-105%" : "0" }}>Click Me</h2>
                   </div>
                   <svg
                     onClick={handleNextPageTransition}
