@@ -14,9 +14,6 @@ function Header({ history, dimensions }) {
     });
 
     if (menuState.menuOpened === true) {
-      gsap.to("nav", { css: { display: "block" } });
-      gsap.to("body", { css: { overflow: "hidden" } });
-
       tl.to("nav", { duration: 0, css: { display: "block" } })
         .to("body", { duration: 0, css: { overflow: "hidden" } })
         .to(".App", {
