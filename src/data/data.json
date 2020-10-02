@@ -1,0 +1,218 @@
+{
+  "caseStudies": [
+    {
+      "pathname": "/case-study/curology",
+      "text": {
+        "title": "Curology",
+        "subtitle": {
+          "full": "A custom formula for your skin's unique needs",
+          "split": ["A custom formula for", "your skin's unique needs"]
+        },
+        "copy": "Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you. Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you.",
+        "mission": "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
+        "services": [
+          "Digital Strategy",
+          "eCommerce Design",
+          "eCommerce Development"
+        ]
+      },
+      "images": {
+        "primary": "curology-min",
+        "secondary": [
+          {
+            "image": "curology-bottles-on-pink-background",
+            "alt": "curology bottles on pink background"
+          },
+          {
+            "image": "curology-bottles-in-white-cabinet",
+            "alt": "curology bottles in white cabinet"
+          },
+          {
+            "image": "curology-bottles-on-pink-water",
+            "alt": "curology bottles on pink water"
+          },
+          {
+            "image": "curology-bottles-over-website",
+            "alt": "curology bottles over website"
+          }
+        ]
+      }
+    },
+    {
+      "pathname": "/case-study/yourspace",
+      "text": {
+        "title": "Yourspace",
+        "subtitle": {
+          "full": "Open space floor plans for your next venture",
+          "split": ["Open space floor plans", "for your next venture"]
+        },
+        "copy": "An interior design company based in Switzerland with designers from around the world. Experts who know how to make your house feel like home. Designers who can make your office as productive as possible. An interior design company based in Switzerland with designers from around the world. Experts who know how to make your house feel like home. Designers who can make your office as productive as possible.",
+        "mission": "The Yourspace team called upon our services to help them carry out the creation of their eCommerce store.",
+        "services": [
+          "Branding",
+          "eCommerce Design",
+          "eCommerce Development",
+          "Digital Marketing Strategy",
+          "3D Imagery"
+        ]
+      },
+      "images": {
+        "primary": "yourspace-min",
+        "secondary": [
+          {
+            "image": "yourspace-open-office-desk-in-center",
+            "alt": "yourspace open office desk in center"
+          },
+          {
+            "image": "yourspace-open-office-desk-on-left",
+            "alt": "yourspace open office desk on left"
+          },
+          {
+            "image": "yourspace-open-office-desk-on-right",
+            "alt": "yourspace open office desk on right"
+          }
+        ]
+      }
+    },
+    {
+      "pathname": "/case-study/lumin",
+      "text": {
+        "title": "Lumin",
+        "subtitle": {
+          "full": "For your best look ever",
+          "split": ["For your best", "look ever"]
+        },
+        "copy": "Hand back your partner/mom/sister’s eye cream, cause it just ain’t gonna cut it. Men’s skin is a whole other ball game—it’s thicker, tougher, and structured differently than women’s. We craft products tailored to your skin type and formulate regimens that actually take your skin issues head-on.",
+        "mission": "The Lumin team called upon our services to help them carry out the creation of their eCommerce store.",
+        "services": [
+          "Product Development",
+          "Brand Strategy",
+          "Digital Strategy",
+          "eCommerce Design",
+          "eCommerce Development",
+          "Social Media Marketing"
+        ]
+      },
+      "images": {
+        "primary": "lumin-min",
+        "secondary": [
+          {
+            "image": "lumin-bottles-with-one-sample-swatch",
+            "alt": "lumin bottles with one sample swatch"
+          },
+          {
+            "image": "lumin-black-and-green-bottles-on-stones",
+            "alt": "lumin black and green bottles on stones"
+          },
+          {
+            "image": "lumin-bottles-arranged-on-white-background",
+            "alt": "lumin bottles arranged on white background"
+          },
+          {
+            "image": "lumin-bottles-on-round-stone",
+            "alt": "lumin bottles on round stone"
+          },
+          {
+            "image": "lumin-bottles-on-stones",
+            "alt": "lumin bottles on stones"
+          },
+          {
+            "image": "lumin-bottles-with-two-sample-swatches",
+            "alt": "lumin bottles with two sample swatches"
+          }
+        ]
+      }
+    }
+  ],
+
+  "cases": [
+    {
+      "pathname": "/case-study/curology",
+      "mainImage": "curology-min",
+      "image": "curology-min",
+      "name": "Curology",
+      "span1": "A custom formula for",
+      "span2": "your skin's unique needs",
+      "mainCopy": "Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you. Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you.",
+      "mission": "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
+      "services": [
+        "Digital Strategy",
+        "eCommerce Design",
+        "eCommerce Development"
+      ],
+      "secondaryImages": [
+        "curology-bottles-on-pink-background",
+        "curology-bottles-in-white-cabinet",
+        "curology-bottles-on-pink-water",
+        "curology-bottles-over-website"
+      ],
+      "secondaryImageAlt": [
+        "curology bottles in white cabinet",
+        "curology bottles on pink background",
+        "curology bottles on pink water",
+        "curology bottles over website"
+      ]
+    },
+    {
+      "pathname": "/case-study/yourspace",
+      "mainImage": "yourspace-min",
+      "image": "yourspace-min",
+      "name": "Yourspace",
+      "span1": "Open space floor plans",
+      "span2": "for your next venture",
+      "mainCopy": "An interior design company based in Switzerland with designers from around the world. Experts who know how to make your house feel like home. Designers who can make your office as productive as possible. An interior design company based in Switzerland with designers from around the world. Experts who know how to make your house feel like home. Designers who can make your office as productive as possible.",
+      "mission": "The Yourspace team called upon our services to help them carry out the creation of their eCommerce store.",
+      "services": [
+        "Branding",
+        "eCommerce Design",
+        "eCommerce Development",
+        "Digital Marketing Strategy",
+        "3D Imagery"
+      ],
+      "secondaryImages": [
+        "yourspace-open-office-desk-in-center",
+        "yourspace-open-office-desk-on-left",
+        "yourspace-open-office-desk-on-right"
+      ],
+      "secondaryImageAlt": [
+        "yourspace open office desk in center",
+        "yourspace open office desk on left",
+        "yourspace open office desk on right"
+      ]
+    },
+    {
+      "pathname": "/case-study/lumin",
+      "mainImage": "lumin-min",
+      "image": "lumin-min",
+      "name": "Lumin",
+      "span1": "For your best",
+      "span2": "look ever",
+      "mainCopy": "Hand back your partner/mom/sister’s eye cream, cause it just ain’t gonna cut it. Men’s skin is a whole other ball game—it’s thicker, tougher, and structured differently than women’s. We craft products tailored to your skin type and formulate regimens that actually take your skin issues head-on.",
+      "mission": "The Lumin team called upon our services to help them carry out the creation of their eCommerce store.",
+      "services": [
+        "Product Development",
+        "Brand Strategy",
+        "Digital Strategy",
+        "eCommerce Design",
+        "eCommerce Development",
+        "Social Media Marketing"
+      ],
+      "secondaryImages": [
+        "lumin-bottles-with-one-sample-swatch",
+        "lumin-black-and-green-bottles-on-stones",
+        "lumin-bottles-arranged-on-white-background",
+        "lumin-bottles-on-round-stone",
+        "lumin-bottles-on-stones",
+        "lumin-bottles-with-two-sample-swatches"
+      ],
+      "secondaryImageAlt": [
+        "lumin bottles with one sample swatch",
+        "lumin black and green bottles on stones",
+        "lumin bottles arranged on white background",
+        "lumin bottles on round stone",
+        "lumin bottles on stones",
+        "lumin bottles with two sample swatches"
+      ]
+    }
+  ]
+}

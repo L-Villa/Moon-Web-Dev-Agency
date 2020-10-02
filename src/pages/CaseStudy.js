@@ -2,102 +2,9 @@ import React, { useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import gsap from "gsap";
 import { ReactComponent as CasesNext } from "../assets/arrow-right.svg";
+import data from "../data/data.json";
 
-//todo: transfer cases array into a json file
-
-const cases = [
-  {
-    pathname: "/case-study/curology",
-    image: "curology-min",
-    name: "Curology",
-    span1: "A custom formula for",
-    span2: "your skin's unique needs",
-    mainCopy: `Forget “custom” algorithms. You’re matched with a
-    Curology provider who gets to know your skin. They’ll
-    ask questions, check your progress, and stick by you.
-    Forget “custom” algorithms. You’re matched with a
-    Curology provider who gets to know your skin. They’ll
-    ask questions, check your progress, and stick by you.`,
-    mission:
-      "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
-    services: ["Digital Strategy", "eCommerce Design", "eCommerce Development"],
-    secondaryImages: [
-      "curology-bottles-on-pink-background",
-      "curology-bottles-in-white-cabinet",
-      "curology-bottles-on-pink-water",
-      "curology-bottles-over-website",
-    ],
-    secondaryImageAlt: [
-      "curology bottles in white cabinet",
-      "curology bottles on pink background",
-      "curology bottles on pink water",
-      "curology bottles over website",
-    ],
-  },
-  {
-    pathname: "/case-study/yourspace",
-    image: "yourspace-min",
-    name: "Yourspace",
-    span1: "Open space floor plans",
-    span2: "for your next venture",
-    mainCopy:
-      "An interior design company based in Switzerland with designers from around the world. Experts who know how to make your house feel like home. Designers who can make your office as productive as possible. An interior design company based in Switzerland with designers from around the world. Experts who know how to make your house feel like home. Designers who can make your office as productive as possible.",
-    mission:
-      "The Yourspace team called upon our services to help them carry out the creation of their eCommerce store.",
-    services: [
-      "Branding",
-      "eCommerce Design",
-      "eCommerce Development",
-      "Digital Marketing Strategy",
-      "3D Imagery",
-    ],
-    secondaryImages: [
-      "yourspace-open-office-desk-in-center",
-      "yourspace-open-office-desk-on-left",
-      "yourspace-open-office-desk-on-right",
-    ],
-    secondaryImageAlt: [
-      "yourspace open office desk in center",
-      "yourspace open office desk on left",
-      "yourspace open office desk on right",
-    ],
-  },
-  {
-    pathname: "/case-study/lumin",
-    image: "lumin-min",
-    name: "Lumin",
-    span1: "For your best",
-    span2: "look ever",
-    mainCopy:
-      "Hand back your partner/mom/sister’s eye cream, cause it just ain’t gonna cut it. Men’s skin is a whole other ball game—it’s thicker, tougher, and structured differently than women’s. We craft products tailored to your skin type and formulate regimens that actually take your skin issues head-on.",
-    mission:
-      "The Lumin team called upon our services to help them carry out the creation of their eCommerce store.",
-    services: [
-      "Product Development",
-      "Brand Strategy",
-      "Digital Strategy",
-      "eCommerce Design",
-      "eCommerce Development",
-      "Social Media Marketing",
-    ],
-    secondaryImages: [
-      "lumin-bottles-with-one-sample-swatch",
-      "lumin-black-and-green-bottles-on-stones",
-      "lumin-bottles-arranged-on-white-background",
-      "lumin-bottles-on-round-stone",
-      "lumin-bottles-on-stones",
-      "lumin-bottles-with-two-sample-swatches",
-    ],
-    secondaryImageAlt: [
-      "lumin bottles with one sample swatch",
-      "lumin black and green bottles on stones",
-      "lumin bottles arranged on white background",
-      "lumin bottles on round stone",
-      "lumin bottles on stones",
-      "lumin bottles with two sample swatches",
-    ],
-  },
-];
+const caseStudies = data.caseStudies;
 
 const initialAnimation = gsap.timeline();
 const nextPageTransition = gsap.timeline();
@@ -193,24 +100,24 @@ function CaseStudy(history) {
 
   return (
     <div>
-      {cases.map((study, i) => {
+      {caseStudies.map((study, index) => {
         if (history.location.pathname === study.pathname) {
           return (
-            <div key={i}>
+            <div key={index}>
               <section className="case-study-landing">
                 <img
-                  src={require(`../assets/${study.image}.png`)}
-                  alt={study.name}
+                  src={require(`../assets/${study.images.primary}.png`)}
+                  alt={study.text.title}
                 />
                 <div className="container">
                   <div className="case-study-text-container">
-                    <p>{study.name}</p>
+                    <p>{study.text.title}</p>
                     <h2>
                       <div className="line">
-                        <span>{study.span1}</span>
+                        <span>{study.text.subtitle.split[0]}</span>
                       </div>
                       <div className="line">
-                        <span>{study.span2}</span>
+                        <span>{study.text.subtitle.split[1]}</span>
                       </div>
                     </h2>
                   </div>
@@ -230,14 +137,14 @@ function CaseStudy(history) {
                 <div className="container">
                   <div className="row">
                     <div className="text-container text-container-lg">
-                      <p>{study.mainCopy}</p>
+                      <p>{study.text.copy}</p>
                       <h2>Mission</h2>
-                      <p>{study.mission}</p>
+                      <p>{study.text.mission}</p>
                     </div>
                     <div className="text-container text-container-sm">
                       <h2>Services</h2>
                       <ul>
-                        {study.services.map((service, index) => {
+                        {study.text.services.map((service, index) => {
                           return <li key={index}>{service}</li>;
                         })}
                       </ul>
@@ -249,12 +156,12 @@ function CaseStudy(history) {
                 </div>
               </section>
               <section className="case-study-images">
-                {study.secondaryImages.map((secondaryImage, index) => {
+                {study.images.secondary.map((secondaryImage, index) => {
                   return (
                     <img
                       key={index}
-                      src={require(`../assets/secondary/${secondaryImage}.png`)}
-                      alt={study.secondaryImageAlt[index]}
+                      src={require(`../assets/secondary/${secondaryImage.image}.png`)}
+                      alt={secondaryImage.alt}
                     ></img>
                   );
                 })}
@@ -263,20 +170,31 @@ function CaseStudy(history) {
                 <div className="next-page-landing-image">
                   <img
                     src={require(`../assets/${
-                      cases[i >= cases.length - 1 ? 0 : i + 1].image
+                      caseStudies[
+                        index >= caseStudies.length - 1 ? 0 : index + 1
+                      ].images.primary
                     }.png`)}
-                    alt={study.name}
+                    alt={
+                      caseStudies[
+                        index >= caseStudies.length - 1 ? 0 : index + 1
+                      ].text.title
+                    }
                   />
                 </div>
                 <Link
                   to={{
-                    pathname: cases[i >= cases.length - 1 ? 0 : i + 1].pathname,
+                    pathname:
+                      caseStudies[
+                        index >= caseStudies.length - 1 ? 0 : index + 1
+                      ].pathname,
                     hash: null,
                   }}
                   onClick={(e) =>
                     delayRedirect(
                       e,
-                      cases[i >= cases.length - 1 ? 0 : i + 1].pathname
+                      caseStudies[
+                        index >= caseStudies.length - 1 ? 0 : index + 1
+                      ].pathname
                     )
                   }
                 >
@@ -299,9 +217,11 @@ function CaseStudy(history) {
                   </svg>
                   <div className="scroll-indicator">
                     <p>
-                      {cases[i >= cases.length - 1 ? 0 : i + 1].span1 +
-                        " " +
-                        cases[i >= cases.length - 1 ? 0 : i + 1].span2}
+                      {
+                        caseStudies[
+                          index >= caseStudies.length - 1 ? 0 : index + 1
+                        ].text.subtitle.full
+                      }
                     </p>
                     <div
                       style={{ background: hover ? "black" : "" }}
