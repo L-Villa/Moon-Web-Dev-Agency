@@ -1,0 +1,504 @@
+.about-landing {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: black;
+  img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  .about-text-container {
+    position: absolute;
+    bottom: 0;
+    margin: 25rem 2rem;
+    font-weight: 600;
+    // width: clamp(400px, 50vw, 2000px);
+    width: 70%;
+    color: $white;
+    @include media("<=phone") {
+      margin: 10rem 1rem;
+    }
+    p {
+      font-size: clamp(1.3rem, 2vw, 3rem);
+      font-weight: 500;
+    }
+    h2 {
+      position: relative;
+      font-size: clamp(1.7rem, 4vw, 7rem);
+      line-height: 1.2;
+      margin: 0;
+      font-weight: 600;
+      @include media("<=phone") {
+        right: 50%;
+        transform: translate(50%, 0);
+        margin: 1rem 0;
+        font-weight: 700;
+      }
+      .line {
+        margin-bottom: clamp(1rem, 4vw, 2.5rem);
+        height: clamp(32px, 4vw, 96px);
+        position: relative;
+        overflow: hidden;
+        span {
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 0px;
+    right: 350px;
+    margin: 10rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    color: $white;
+    opacity: 0;
+    z-index: 6;
+    cursor: pointer;
+    @include media("<=1400px") {
+      right: 50%;
+      transform: translate(50%, 0);
+      margin: 1rem 0;
+    }
+    p {
+      font-size: clamp(1.1rem, 4vw, 1.7rem);
+      margin: 0;
+      margin-right: clamp(1rem, 4vw, 2rem);
+    }
+    .scroll-arrow {
+      background: rgba(77, 77, 77, 0.4);
+      height: clamp(50px, 4vw, 70px);
+      width: clamp(50px, 4vw, 70px);
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: all;
+      svg {
+        color: $white;
+        height: clamp(25px, 2vw, 40px);
+        width: clamp(25px, 2vw, 40px);
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+.services {
+  margin: 0;
+  padding: 30rem 0;
+  letter-spacing: -0.1rem;
+  font-weight: 500;
+  .services-category {
+    h2 {
+      font-size: 4rem;
+    }
+    .services-service {
+      position: relative;
+      .services-title {
+        border: 1px solid rgb(218, 218, 218);
+        border-left: none;
+        border-right: none;
+        color: rgb(218, 218, 218);
+        padding: 0rem 0;
+        h3 {
+          font-size: 5rem;
+          font-weight: 500;
+          margin: 2rem 0;
+        }
+      }
+      .services-content {
+        background: black;
+        color: rgb(218, 218, 218);
+        padding: 2rem 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        // height: 0;
+        overflow: hidden;
+        p {
+          font-size: 2.3rem;
+          line-height: 3rem;
+          width: 55%;
+          margin-left: 22rem;
+          // margin: auto;
+          // font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+//! remaining sections
+// .case-details {
+//   width: 100%;
+//   overflow: hidden;
+//   display: flex;
+//   justify-content: center;
+//   padding: 18rem 0rem;
+//   @include media("<=tablet") {
+//     padding: 7rem 0rem;
+//   }
+//   .row {
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     .text-container {
+//       width: clamp(10rem, 50vw, 70rem);
+//       color: rgb(204, 204, 204);
+//       line-height: 4rem;
+//       letter-spacing: -0.1rem;
+//       @include media("<=800px") {
+//         width: 100%;
+//         margin-right: 0;
+//       }
+//       &.text-container-sm {
+//         width: clamp(10rem, 50vw, 28rem);
+//         margin-top: 1rem;
+//         @include media("<=800px") {
+//           margin-top: 0rem;
+//           width: 100%;
+//         }
+//       }
+//       &.text-container-lg {
+//         margin-right: clamp(0rem, 4vw, 8rem);
+//         h2 {
+//           color: $black;
+//           margin-top: clamp(1rem, 4vw, 7rem);
+//           margin-bottom: 0;
+//         }
+//         p {
+//           &:nth-of-type(2) {
+//             margin-top: 0;
+//             color: rgb(148, 148, 148);
+//             font-size: clamp(1.3rem, 5vw, 2rem);
+//             line-height: clamp(1.5rem, 5vw, 3rem);
+//           }
+//         }
+//       }
+//       p {
+//         font-weight: 500;
+//         font-size: clamp(1.5rem, 5vw, 3rem);
+//         line-height: clamp(1.8rem, 5vw, 4rem);
+//       }
+//       h2 {
+//         margin-bottom: 0;
+//         font-size: clamp(1.7rem, 4vw, 2rem);
+//         font-weight: 600;
+//       }
+//       ul {
+//         margin-top: 0;
+//         margin-left: 0;
+//         padding-left: 0;
+//         li {
+//           font-size: clamp(1.5rem, 4vw, 2.5rem);
+//           line-height: clamp(2.3rem, 4vw, 4rem);
+//           font-weight: 600;
+//           color: $black;
+//           list-style: none;
+//           margin-left: 0;
+//         }
+//       }
+//       .btn-row {
+//         width: clamp(110px, 20vw, 190px);
+//         position: relative;
+//         z-index: 2;
+//         font-size: clamp(1.1rem, 2vw, 2rem);
+//         color: $black;
+//         text-decoration: none;
+//         display: flex;
+//         align-items: center;
+//         font-weight: 600;
+//         margin-top: 5rem;
+//         cursor: pointer;
+//         @include media("<=tablet") {
+//           margin-top: 0rem;
+//         }
+//         svg {
+//           margin-left: 16px;
+//           border: 2px solid $black;
+//           padding: 12px;
+//           height: 30px;
+//           width: 30px;
+//           border-radius: 100px;
+//           background: rgba(0, 0, 0, 0);
+//           transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+//           @include media("<=tablet") {
+//             padding: 6px;
+//             width: 20px;
+//             height: 20px;
+//           }
+//           @include media("<=phone") {
+//             padding: 4px;
+//             width: 16px;
+//             height: 16px;
+//           }
+//         }
+//         &:hover {
+//           svg {
+//             background: $black;
+//             color: $white;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .case-study-images {
+//   width: 100%;
+//   img {
+//     width: 100%;
+//     object-fit: cover;
+//     display: block;
+//   }
+// }
+
+// .next-case {
+//   position: relative;
+//   height: 125vh;
+//   width: 100%;
+//   overflow: hidden;
+//   a {
+//     color: black;
+//     text-decoration: none;
+//   }
+//   .wave {
+//     position: absolute;
+//     top: 40%;
+//     fill: rgb(191, 235, 255);
+//     cursor: pointer;
+//     transition: opacity 0.3s ease-in-out;
+//     opacity: 0.6;
+//     &:nth-of-type(2) {
+//       fill: rgb(123, 213, 255);
+//       opacity: 1;
+//     }
+//     @include media("<=800px") {
+//       top: 74%;
+//     }
+//     @include media("<=phone") {
+//       top: 80%;
+//     }
+//   }
+//   .scrolling-text {
+//     position: absolute;
+//     top: 43%;
+//     left: 50%;
+//     transform: translate(-50%, 0);
+//     padding: 0 1rem;
+//     height: clamp(3rem, 10.2vw, 16rem);
+//     text-align: center;
+//     overflow: hidden;
+//     @include media("<=800px") {
+//       top: 75%;
+//     }
+//     @include media("<=phone") {
+//       top: 80%;
+//     }
+//     h2 {
+//       position: relative;
+//       top: 0px;
+//       margin: 0rem;
+//       font-weight: 500;
+//       letter-spacing: -1.5rem;
+//       transition: top 0.5s;
+//       font-size: clamp(2rem, 10vw, 14rem);
+//       @include media("<=800px") {
+//         letter-spacing: -0.5rem;
+//       }
+//       @include media("<=phone") {
+//         letter-spacing: -0.2rem;
+//       }
+//     }
+//   }
+//   .scroll-indicator {
+//     position: absolute;
+//     top: 55%;
+//     left: 50%;
+//     width: 100%;
+//     transform: translate(-50%, -50%);
+//     margin: 10rem 0rem;
+//     padding: 20px 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     box-sizing: border-box;
+//     pointer-events: none;
+//     color: $black;
+//     z-index: 6;
+//     letter-spacing: -0.1rem;
+//     @include media("<=800px") {
+//       top: 75%;
+//     }
+//     @include media("<=phone") {
+//       top: 75%;
+//     }
+//     p {
+//       font-size: clamp(1.1rem, 4vw, 1.7rem);
+//       margin: 0;
+//       margin-right: clamp(1rem, 4vw, 1.2rem);
+//     }
+//     .scroll-arrow {
+//       height: clamp(35px, 4vw, 60px);
+//       width: clamp(35px, 4vw, 60px);
+//       border: 2px solid black;
+//       border-radius: 100%;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       cursor: pointer;
+//       pointer-events: none;
+//       transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+//       svg {
+//         color: $black;
+//         height: clamp(25px, 2vw, 35px);
+//         width: clamp(25px, 2vw, 35px);
+//         transform: rotate(90deg);
+//       }
+//     }
+//   }
+
+//   .next-page-landing-image {
+//     position: relative;
+//     top: 100%;
+//     height: 100vh;
+//     width: 100%;
+//     overflow: hidden;
+//     background: black;
+//     img {
+//       position: absolute;
+//       height: 100%;
+//       width: 100%;
+//       object-fit: cover;
+//       opacity: 0.65;
+//       pointer-events: none;
+//     }
+//   }
+// }
+
+//! this css requires a new next page animation
+//todo: create a second animation that runs at certain screen sizes
+// .next-case {
+//   position: relative;
+//   height: 125vh;
+//   @include media("<=800px") {
+//     height: 50vh;
+//   }
+//   @include media("<=phone") {
+//     height: 40vh;
+//   }
+//   width: 100%;
+//   overflow: hidden;
+//   a {
+//     color: black;
+//     text-decoration: none;
+//   }
+//   .scrolling-text {
+//     position: absolute;
+//     top: 43%;
+//     left: 50%;
+//     transform: translate(-50%, 0);
+//     padding: 0 1rem;
+//     height: clamp(3rem, 10.2vw, 16rem);
+//     text-align: center;
+//     overflow: hidden;
+//     h2 {
+//       position: relative;
+//       top: 0px;
+//       margin: 0rem;
+//       font-weight: 500;
+//       letter-spacing: -1.5rem;
+//       transition: top 0.5s;
+//       font-size: clamp(2rem, 10vw, 14rem);
+//       @include media("<=800px") {
+//         letter-spacing: -0.5rem;
+//       }
+//       @include media("<=phone") {
+//         letter-spacing: -0.2rem;
+//       }
+//     }
+//   }
+//   .wave {
+//     position: absolute;
+//     top: 40%;
+//     fill: rgb(191, 235, 255);
+//     cursor: pointer;
+//     transition: opacity 0.3s ease-in-out;
+//     opacity: 0.6;
+//     &:nth-of-type(2) {
+//       fill: rgb(123, 213, 255);
+//       opacity: 1;
+//     }
+//   }
+//   .scroll-indicator {
+//     position: absolute;
+//     top: 55%;
+//     left: 50%;
+//     width: 100%;
+//     transform: translate(-50%, -50%);
+//     margin: 10rem 0rem;
+//     padding: 20px 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     box-sizing: border-box;
+//     pointer-events: none;
+//     color: $black;
+//     z-index: 6;
+//     letter-spacing: -0.1rem;
+//     @include media("<=phone") {
+//       top: 25%;
+//     }
+//     p {
+//       font-size: clamp(1.1rem, 4vw, 1.7rem);
+//       margin: 0;
+//       margin-right: clamp(1rem, 4vw, 1.2rem);
+//     }
+//     .scroll-arrow {
+//       height: clamp(35px, 4vw, 60px);
+//       width: clamp(35px, 4vw, 60px);
+//       border: 2px solid black;
+//       border-radius: 100%;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       cursor: pointer;
+//       pointer-events: none;
+//       transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+//       svg {
+//         color: $black;
+//         height: clamp(25px, 2vw, 35px);
+//         width: clamp(25px, 2vw, 35px);
+//         transform: rotate(90deg);
+//       }
+//     }
+//   }
+
+//   .next-page-landing-image {
+//     position: relative;
+//     top: 100%;
+//     height: 100vh;
+//     width: 100%;
+//     overflow: hidden;
+//     background: black;
+//     img {
+//       position: absolute;
+//       height: 100%;
+//       width: 100%;
+//       object-fit: cover;
+//       opacity: 0.65;
+//       pointer-events: none;
+//     }
+//   }
+// }

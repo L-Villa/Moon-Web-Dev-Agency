@@ -1,4 +1,131 @@
 {
+  "pages": [
+    {
+      "pathname": "/about",
+      "text": {
+        "title": "About us",
+        "subtitle": {
+          "full": "We are a squad of crazy folks whose obsession for excellence in digital-first branding made us cross paths",
+          "split": [
+            "We are a squad of crazy folks whose",
+            "obsession for excellence in digital-",
+            "first branding made us cross paths"
+          ]
+        },
+        "copy": "Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you. Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you.",
+        "mission": "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
+        "services": [
+          "Digital Strategy",
+          "eCommerce Design",
+          "eCommerce Development"
+        ]
+      },
+      "images": {
+        "primary": "curology-min",
+        "secondary": [
+          {
+            "image": "curology-bottles-on-pink-background",
+            "alt": "curology bottles on pink background"
+          },
+          {
+            "image": "curology-bottles-in-white-cabinet",
+            "alt": "curology bottles in white cabinet"
+          },
+          {
+            "image": "curology-bottles-on-pink-water",
+            "alt": "curology bottles on pink water"
+          },
+          {
+            "image": "curology-bottles-over-website",
+            "alt": "curology bottles over website"
+          }
+        ]
+      }
+    },
+    {
+      "pathname": "/approach",
+      "text": {
+        "title": "Approach",
+        "subtitle": {
+          "full": "We look for instinctive keys behind business challanges",
+          "split": [
+            "We look for instinctive keys",
+            "behind business challanges"
+          ]
+        },
+        "copy": "Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you. Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you.",
+        "mission": "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
+        "services": [
+          "Digital Strategy",
+          "eCommerce Design",
+          "eCommerce Development"
+        ]
+      },
+      "images": {
+        "primary": "curology-min",
+        "secondary": [
+          {
+            "image": "curology-bottles-on-pink-background",
+            "alt": "curology bottles on pink background"
+          },
+          {
+            "image": "curology-bottles-in-white-cabinet",
+            "alt": "curology bottles in white cabinet"
+          },
+          {
+            "image": "curology-bottles-on-pink-water",
+            "alt": "curology bottles on pink water"
+          },
+          {
+            "image": "curology-bottles-over-website",
+            "alt": "curology bottles over website"
+          }
+        ]
+      }
+    },
+    {
+      "pathname": "/services",
+      "text": {
+        "title": "Services",
+        "subtitle": {
+          "full": "We offer a tailor-made solution for every project our clients entrust us with",
+          "split": [
+            "We offer a tailor-made solution for",
+            "every project our clients entrust us",
+            "with"
+          ]
+        },
+        "copy": "Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you. Forget 'custom' algorithms. You’re matched with a Curology provider who gets to know your skin. They’ll ask questions, check your progress, and stick by you.",
+        "mission": "The Curology team called upon our services to help them carry out the creation of their eCommerce store.",
+        "services": [
+          "Digital Strategy",
+          "eCommerce Design",
+          "eCommerce Development"
+        ]
+      },
+      "images": {
+        "primary": "curology-min",
+        "secondary": [
+          {
+            "image": "curology-bottles-on-pink-background",
+            "alt": "curology bottles on pink background"
+          },
+          {
+            "image": "curology-bottles-in-white-cabinet",
+            "alt": "curology bottles in white cabinet"
+          },
+          {
+            "image": "curology-bottles-on-pink-water",
+            "alt": "curology bottles on pink water"
+          },
+          {
+            "image": "curology-bottles-over-website",
+            "alt": "curology bottles over website"
+          }
+        ]
+      }
+    }
+  ],
   "caseStudies": [
     {
       "pathname": "/case-study/curology",

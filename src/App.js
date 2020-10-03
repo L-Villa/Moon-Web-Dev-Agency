@@ -8,8 +8,8 @@ import Navigation from "./components/Navigation";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Approach from "./pages/Approach";
-import Services from "./pages/Services";
+// import Approach from "./pages/Approach";
+// import Services from "./pages/Services";
 
 import CaseStudy from "./pages/CaseStudy";
 
@@ -27,12 +27,12 @@ const routes = [
   {
     path: "/approach",
     name: "Approach",
-    Component: Approach,
+    Component: About,
   },
   {
     path: "/services",
     name: "Services",
-    Component: Services,
+    Component: About,
   },
   {
     path: "/case-study/curology",
