@@ -9,6 +9,7 @@ nav {
   display: block;
   overflow: hidden;
   background: rgb(233, 247, 253);
+  background: $yellow;
   a {
     position: relative;
     &:after {

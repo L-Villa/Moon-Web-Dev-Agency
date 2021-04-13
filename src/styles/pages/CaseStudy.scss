@@ -229,11 +229,13 @@
     position: absolute;
     top: 40%;
     fill: rgb(191, 235, 255);
+    fill: $yellow;
     cursor: pointer;
     transition: opacity 0.3s ease-in-out;
     opacity: 0.6;
     &:nth-of-type(2) {
       fill: rgb(123, 213, 255);
+      fill: $dark-yellow;
       opacity: 1;
     }
     @include media("<=800px") {
