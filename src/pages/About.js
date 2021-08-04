@@ -8,7 +8,7 @@ const caseStudies = data.pages;
 
 const initialAnimation = gsap.timeline();
 const nextPageTransition = gsap.timeline();
-const servicesTransition = gsap.timeline();
+// const servicesTransition = gsap.timeline();
 
 const handleInitialAnimation = () => {
   initialAnimation
