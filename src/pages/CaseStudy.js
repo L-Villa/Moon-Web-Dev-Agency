@@ -160,7 +160,7 @@ function CaseStudy(history) {
                   return (
                     <img
                       key={index}
-                      src={require(`../assets/secondary/${secondaryImage.image}.png`)}
+                      src={require(`../assets/secondary/${secondaryImage.image}.jpg`)}
                       alt={secondaryImage.alt}
                     ></img>
                   );
