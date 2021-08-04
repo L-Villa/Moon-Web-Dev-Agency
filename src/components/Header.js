@@ -133,11 +133,18 @@ function Header({ history, dimensions }) {
     }
   }, [menuState.menuOpened, dimensions, history]);
 
+  const [mix, setMix] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setMix(true);
+    }, 6000);
+  }, []);
+
   return (
-    <div className="header">
+    <div className={`header ${mix && "mix-blend"}`}>
       <div className="container">
         <div className="row v-center space-between">
-          <div className="logo">
+          <div className="logo" style={{ color: mix ? "white" : "black" }}>
             <NavLink to="/">AGENCY.</NavLink>
           </div>
           <div className="nav-toggle">
@@ -145,8 +152,8 @@ function Header({ history, dimensions }) {
               onClick={() => setMenuState({ menuOpened: true })}
               className="hamburger-menu"
             >
-              <span></span>
-              <span></span>
+              <span style={{ background: mix ? "white" : "black" }}></span>
+              <span style={{ background: mix ? "white" : "black" }}></span>
             </div>
             <div
               onClick={() => setMenuState({ menuOpened: false })}
