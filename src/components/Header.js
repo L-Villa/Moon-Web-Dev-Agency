@@ -137,7 +137,7 @@ function Header({ history, dimensions }) {
   useEffect(() => {
     setTimeout(() => {
       setMix(true);
-    }, 6000);
+    }, 7000);
   }, []);
 
   return (
