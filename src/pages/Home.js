@@ -47,11 +47,18 @@ export default function Home(props) {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     homeAnimation(completeAnimation);
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
+      }}
+    >
       {animationComplete === false ? <IntroOverlay /> : ""}
       <Banner />
       <Cases dimensions={props.dimensions} />
