@@ -92,18 +92,12 @@ function Cases(props) {
   const handleCaseClick = (e, index) => {
     const scrollTop = window.pageYOffset;
     const scrollLeft = window.pageXOffset;
-    const windowOffsets = window.screen;
-    const windowTop = windowOffsets.top;
 
     const initialCase = e.target.getBoundingClientRect();
     const initialY = initialCase.y;
     const initialX = initialCase.x;
     const initialHeight = initialCase.height;
     const initialWidth = initialCase.width;
-
-    const finalCase = document.documentElement;
-    const finalWidth = finalCase.clientWidth;
-    const finalHeight = finalCase.clientHeight;
 
     //! remove scrolling until affect is done?
     for (let i = 0; i < caseStudies.length; i++) {
@@ -130,10 +124,13 @@ function Cases(props) {
               duration: timings.animatedCase.duration,
               delay: timings.animatedCase.delay,
               visibility: "visible",
-              y: windowTop,
+              y:
+                props.dimensions.width > 800
+                  ? document.documentElement.scrollTop
+                  : 0,
               x: scrollLeft,
-              width: finalWidth,
-              height: finalHeight,
+              width: props.dimensions.width,
+              height: props.dimensions.height,
               ease: "expo.inOut",
             }
           );
@@ -246,7 +243,10 @@ function Cases(props) {
             ))}
           </div>
         </div>
-        <div className="case-image-zoom-container">
+        <div
+          className="case-image-zoom-container"
+          style={{ top: window.pageYOffset }}
+        >
           {caseStudies.map((caseItem, index) => (
             <div className={"case-image-zoom"} key={caseItem.id}>
               <img
