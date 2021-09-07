@@ -1,8 +1,8 @@
 # Moon Web Dev Agency
 
-This website was designed for a mock web dev agency. The goal of this project was to practice creating custom JavaScript interactions. All animations and interactions were created using GSAP. This project has a [demo](https://luisvilla.xyz/projects/moon/demo).
+This website was designed for a mock web dev agency. The goal of this project was to practice creating custom JavaScript interactions. All animations and interactions were created using GSAP. This project has a [demo](https://luisvilla.xyz/projects/moon/demo) on my personal website.
 
-Visit my [personal website](https://luisvilla.xyz).
+Visit my [personal website](https://luisvilla.xyz) if you'd like to see more of my projects.
 
 ## Site
 
