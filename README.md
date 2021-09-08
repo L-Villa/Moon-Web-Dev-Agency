@@ -1,6 +1,6 @@
 # Moon Web Dev Agency
 
-This website was designed for a mock web dev agency. The goal of this project was to practice creating custom JavaScript interactions. All animations and interactions were created using GSAP. This project has a [demo](https://luisvilla.xyz/projects/moon/demo) on my personal website.
+Moon is the name of a fictitious web development agency. This project's goal was to develop a website that showcased elegant transitions between the various pages, achieved with the help of the GreenSock Animation Platform (GSAP). This project has a [demo](https://luisvilla.xyz/projects/moon/demo) on my personal website.
 
 Visit my [personal website](https://luisvilla.xyz) if you'd like to see more of my projects.
 
