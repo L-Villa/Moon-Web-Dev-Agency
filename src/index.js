@@ -5,7 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
-  <Router basename="/projects/moon/demo">
+  <Router basename="/">
     <App />
   </Router>,
   document.getElementById("root")
